@@ -19,16 +19,20 @@ dates = []
 
 def tokenize_transcript(tokenize,data):
     # Returns a list of words contained in an entire transcript.
-    script = []
+    scripts = []
     for article in data:
       script = tokenize(article['transcript'])
+      scripts.append(script)
       transcript_lengths.append(len(script))
       dates.append(article['date'])
-    return script
+    return scripts
 
 tokenized_transcripts = tokenize_transcript(tokenize, data)
 transcript_lengths.sort()
 dates.sort()
+
+# average # of words per article
+# print(sum(transcript_lengths) / len(transcript_lengths))
 
 # print(len(dates))
 # print(dates)
@@ -65,12 +69,10 @@ yearFreq = whichYear(data)
 # plt.show()
 
 
-plt.title('Frequency of Article Dates') 
-plt.xlabel('Dates (2020 to 2018)')
-plt.ylabel('Frequency')
-
-x = datesFreq.keys()
-y = datesFreq.values()
-
-plt.scatter(x, y)
-plt.show()
+# plt.title('Frequency of Article Dates') 
+# plt.xlabel('Dates (2020 to 2018)')
+# plt.ylabel('Frequency')
+# x = datesFreq.keys()
+# y = datesFreq.values()
+# plt.scatter(x, y)
+# plt.show()
