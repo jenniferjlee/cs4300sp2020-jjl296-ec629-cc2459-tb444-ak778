@@ -18,7 +18,7 @@ data_file_name = "total_data.json"
 def load_json_file(name):
     current_directory = os.path.dirname(os.path.realpath(__file__))
     file_path = os.path.join(current_directory, name)
-    with open(file_path) as json_file:
+    with open(file_path, encoding = 'utf-8') as json_file:
         data = json.load(json_file)
     return data
 
