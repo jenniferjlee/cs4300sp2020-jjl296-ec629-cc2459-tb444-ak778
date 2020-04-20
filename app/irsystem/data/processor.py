@@ -5,6 +5,7 @@ from nltk.stem import PorterStemmer
 import re
 import numpy as np
 import math
+import nltk
 
 """
 This file processes and cleans the text inside the articles.
@@ -13,7 +14,7 @@ are created here and saved as json files.
 
 
 """
-data_file_name = "total_data.json"
+data_file_name = "total_data_url.json"
 
 def load_json_file(name):
     current_directory = os.path.dirname(os.path.realpath(__file__))
@@ -204,7 +205,6 @@ def compute_doc_norms(input_tfidf_matrix):
     numpy.array
     
     """
-    n_docs = len(input_tfidf_matrix)
     norms = []
     doc_id = 0
     for doc in input_tfidf_matrix:
@@ -251,7 +251,7 @@ def main():
     num_articles = len(data)
     print(str(num_articles) + ' articles loaded')
     print('Each article has the following features:')
-    print(data[0].keys())
+    print(data[477].keys())
     # Tokenize transcripts and titles
     data = tokenize_articles(data, 'transcript', tokenize)
     data = tokenize_articles(data, 'title', tokenize)

@@ -5,7 +5,7 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer 
 import re
 
-def search_transcripts(query, input_tfidf_matrix, input_inverted_index, input_doc_norms, tokenize_method):
+def search_tfdf_method(query, input_tfidf_matrix, input_inverted_index, input_doc_norms, tokenize_method):
     n_docs = len(input_tfidf_matrix)
     q_tokens = tokenize_method(query)
     totals = np.zeros(n_docs)
@@ -28,7 +28,7 @@ def get_top_k(results, k, input_data):
     output = []
     for i in range(min(k, len(results))):
         doc_id = results[i][1]
-        title = input_data[doc_id]['title']
+        title = (input_data[doc_id]['title'], input_data[doc_id].get('url'))
         output.append(title)
     return output
 
