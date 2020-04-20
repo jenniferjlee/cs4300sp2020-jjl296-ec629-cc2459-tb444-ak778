@@ -5,6 +5,7 @@ from nltk.stem import PorterStemmer
 import re
 import numpy as np
 import math
+import nltk
 
 """
 This file processes and cleans the text inside the articles.
@@ -204,7 +205,6 @@ def compute_doc_norms(input_tfidf_matrix):
     numpy.array
     
     """
-    n_docs = len(input_tfidf_matrix)
     norms = []
     doc_id = 0
     for doc in input_tfidf_matrix:
