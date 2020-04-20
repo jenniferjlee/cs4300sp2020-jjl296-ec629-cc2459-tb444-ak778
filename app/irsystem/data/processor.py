@@ -14,7 +14,7 @@ are created here and saved as json files.
 
 
 """
-data_file_name = "total_data.json"
+data_file_name = "total_data_url.json"
 
 def load_json_file(name):
     current_directory = os.path.dirname(os.path.realpath(__file__))
@@ -243,7 +243,7 @@ def main():
     num_articles = len(data)
     print(str(num_articles) + ' articles loaded')
     print('Each article has the following features:')
-    print(data[0].keys())
+    print(data[477].keys())
     # Tokenize transcripts and titles
     data = tokenize_articles(data, 'transcript', tokenize)
     data = tokenize_articles(data, 'title', tokenize)
