@@ -9,7 +9,7 @@ from app.irsystem.models.search import *
 project_name = "CUSmiles"
 net_id = "Jennifer Lee: jjl296, Camilo Cedeno-Tobon: cc2459, Tanmay Bansal: tb444, Alina Kim: ak778, Ein Chang: ec629 "
 
-documents = load_json_file('total_data.json')
+documents = load_json_file('total_data_url.json')
 inverted_index = load_json_file('transcript_inverted_index.json')
 tfidf_matrix = load_json_file('transcript_tfidf_matrix.json')
 norms = load_json_file('transcript_norms.json')
