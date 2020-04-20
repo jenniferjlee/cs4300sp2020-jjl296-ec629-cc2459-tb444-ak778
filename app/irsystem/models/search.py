@@ -5,7 +5,7 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer 
 import re
 
-def search_transcripts(query, input_tfidf_matrix, input_inverted_index, input_doc_norms, tokenize_method):
+def search_tfdf_method(query, input_tfidf_matrix, input_inverted_index, input_doc_norms, tokenize_method):
     n_docs = len(input_tfidf_matrix)
     q_tokens = tokenize_method(query)
     totals = np.zeros(n_docs)
