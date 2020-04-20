@@ -86,8 +86,8 @@ def main():
     df["keywords"] = ""
     for index, row in df.iterrows():
         make_keywords(row)
-    df.to_json('total_data_2_keywords.json', orient='records')
-    with open('total_data_2_keywords.json', 'w', encoding='utf-8') as file:
+    df.to_json('total_data_keywords.json', orient='records')
+    with open('total_data_keywords.json', 'w', encoding='utf-8') as file:
         df.to_json(file, force_ascii=False, orient='records')
     print('Successfully Created and Saved Files')
 
