@@ -26,7 +26,7 @@ def search_transcripts(query, input_tfidf_matrix, input_inverted_index, input_do
 
 def get_top_k(results, k, input_data):
     output = []
-    for i in range(k):
+    for i in range(min(k, len(results))):
         doc_id = results[i][1]
         title = input_data[doc_id]['title']
         output.append(title)
