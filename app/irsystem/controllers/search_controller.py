@@ -21,7 +21,7 @@ def search():
     query = request.args.get('search')
     if not query:
         data = []
-        output_message = ''
+        output_message = 'No results'
     else:
         results = search_transcripts(query, tfidf_matrix, inverted_index, norms, tokenize)
         top_5 = get_top_k(results, 5, documents)
