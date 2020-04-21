@@ -25,11 +25,12 @@
         left: 0px;
         width: 140px;
         height: 120px;
-        /* border: 1px solid #ddd; */
-        /* border-radius: 4px; */
+        border: 1px solid #ddd;
+        border-radius: 4px;
         padding: 5px;
     }
     .form-group {
+        display: inline-block;
         margin-top: 15px;
         padding-top: 15px;
         padding-bottom: 15px;
@@ -47,6 +48,7 @@
         width: 500px;
     }
     .global-search * {
+        display: inline-block;
         margin-bottom: 0;
     }
 }
@@ -98,10 +100,11 @@
 
 
 /* input{    
-    background: url("static/search.png") top left no-repeat;
+    background: url("search.png") top left no-repeat;
     height:30px;
     padding-left:25px;   
-} */
+}
+*/
 
 footer {
     position: fixed;
