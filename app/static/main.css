@@ -6,7 +6,7 @@
 
 @media (min-width:400px) {
     .global-search {
-        /* padding: 20px 0; */
+        padding: 20px 0;
         text-align: center;
     }
     body,
@@ -24,16 +24,16 @@
         top: 0px;
         left: 0px;
         max-width: 100%;
-        height: auto;
+        height: 100%;
         border: 1px solid #ddd;
         border-radius: 4px;
         padding: 5px;
     }
     .form-group {
         display: inline-block;
-        margin-top: 0;
-        /* padding-top: 15%;
-        padding-bottom: 15px; */
+        margin-top: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
         font-family: "DM Sans";
         color: #495057;
     }
@@ -41,8 +41,8 @@
         text-align: center;
         font-family: "DM Sans";
         color: #495057;
-        padding-top: 0px;
-        /* padding-bottom: 15px; */
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
     .global-search .form-control {
         width: 500px;
@@ -55,7 +55,7 @@
 
 .topcorner {
     position: absolute;
-    text-align: right;
+    text-align: left;
     top: 2%;
     left: 2%;
 }
@@ -90,9 +90,10 @@
     transition-duration: 0.4s;
 }
 
-.step-links a{
-color: #86BBD8;
+.step-links a {
+    color: #86BBD8;
 }
+
 
 /* input{    
     background: url("") top left no-repeat;
