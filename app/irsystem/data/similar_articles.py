@@ -10,6 +10,17 @@ import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 from numpy import linalg as LA
 
+# import nltk
+# import ssl
+
+# try:
+#     _create_unverified_https_context = ssl._create_unverified_context
+# except AttributeError:
+#     pass
+# else:
+#     ssl._create_default_https_context = _create_unverified_https_context
+
+# nltk.download()
 
 data_file_name = "total_data.json"
 

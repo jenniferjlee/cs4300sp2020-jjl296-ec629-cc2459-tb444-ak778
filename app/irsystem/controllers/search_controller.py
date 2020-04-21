@@ -21,11 +21,15 @@ def search():
     query = request.args.get('search')
     if not query:
         data = []
+        src = []
+        url = []
         output_message = 'No results'
     else:
         results = search_transcripts(query, tfidf_matrix, inverted_index, norms, tokenize)
         top_5 = get_top_k(results, 5, documents)
         output_message = "Your search: " + query
         data = top_5
-    return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data)
+        src = (x[0] for x in data)
+        url = (x[1] for x in data)
+    return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, s=src, u=url)
 
