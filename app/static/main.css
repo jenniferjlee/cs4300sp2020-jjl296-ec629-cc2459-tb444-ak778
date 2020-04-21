@@ -25,8 +25,8 @@
         left: 0px;
         max-width: 100%;
         height: auto;
-        border: 1px solid #ddd;
-        border-radius: 4px;
+        /* border: 1px solid #ddd; */
+        /* border-radius: 4px; */
         padding: 5px;
     }
     .form-group {
@@ -55,7 +55,7 @@
 
 .topcorner {
     position: absolute;
-    text-align: right;
+    text-align: left;
     top: 2%;
     left: 2%;
 }
@@ -103,7 +103,15 @@ color: #86BBD8;
 }
 
 /* input{    
-    background: url("") top left no-repeat;
+    background: url("search.png") top left no-repeat;
     height:30px;
     padding-left:25px;   
 } */
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
