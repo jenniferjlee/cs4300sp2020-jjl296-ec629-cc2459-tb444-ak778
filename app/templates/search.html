@@ -5,25 +5,21 @@
     </head>
     <body>
         <div class="topcorner">
-            <p>Project Name: {{ name }}</p>
+            <!-- this doesn't show up -->
+            <img src="img/smile.png" alt="CUSmileLogo">
             <p>Student Name: ({{ netid }})</p>
         </div>
         <form class="form-inline global-search">
-            <h1 style="font-size: 55px; font-family:Futura; color: #4285F4">
-                C
-                <span style="color: #EA4335; ">S</span>
-                <span style="color: #FBBC05; ">4</span>
-                3
-                <span style="color: #34A853; ">0</span>
-                <span style="color: #EA4335; ">0</span>
+            <h1 style="font-size: 40px; font-family:Futura; color: #272343">
+                Search for uplifting news about any topic
             </h1>
             
             <br><br>
             
             <div class="form-group">
-                <input id="input" type="text" name="search" class="form-control" placeholder="Your Input">
+                <input style="font-family:Futura; color: #495057" id="input" type="text" name="search" class="form-control" placeholder='Type any keyword like “dogs”'>
             </div>
-            <button type="submit" class="btn btn-info"> Go! </button>
+            <button style="font-family:Futura; background-color:#86BBD8" type="submit" class="btn btn-info"> Search </button>
         </form>
         <form class="form-inline global-search">
         {% if data %}
