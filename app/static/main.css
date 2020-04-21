@@ -60,14 +60,6 @@
     left: 2%;
 }
 
-.btn {
-    background-color: #4285F4;
-    border: none;
-    font-family: "DM Sans";
-    border-radius: 4px;
-    transition-duration: 0.4s;
-}
-
 .btn:hover {
     background-color: white;
     color: #4285f4;
