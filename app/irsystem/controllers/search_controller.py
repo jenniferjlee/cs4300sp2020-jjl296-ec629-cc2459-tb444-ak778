@@ -21,6 +21,8 @@ def search():
     query = request.args.get('search')
     if not query:
         data = []
+        src = []
+        url = []
         output_message = 'No results'
     else:
         results = search_tfdf_method(query, tfidf_matrix, inverted_index, norms, tokenize)

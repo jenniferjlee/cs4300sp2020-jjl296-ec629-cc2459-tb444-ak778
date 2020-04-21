@@ -1,35 +1,38 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="/static/bootstrap.min.css">
-        <link rel="stylesheet" href="/static/main.css">
-    </head>
-    <body>
-        <div class="topcorner">
-            <!-- this doesn't show up -->
-            <img src="img/smile.png" alt="CUSmileLogo">
-            <p>Student Name: ({{ netid }})</p>
+
+<head>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="/static/results.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="topcorner">
+        <img src="/static/logo.png" alt="CUSmileLogo">
+        <p style="font-family:DM Sans">Student Name: ({{ netid }})</p>
+        <!-- test -->
+    </div>
+    <form class="form-inline global-search">
+        <h1 style="font-size: 40px; font-family:DM Sans; color: #272343">
+            Search for uplifting news about any topic
+        </h1>
+
+        <br><br>
+
+        <div class="form-group">
+            <input style="font-family:DM Sans; color: #495057" id="input" type="text" name="search" class="form-control" placeholder='Type any keyword like “dogs”'>
         </div>
-        <form class="form-inline global-search">
-            <h1 style="font-size: 40px; font-family:Futura; color: #272343">
-                Search for uplifting news about any topic
-            </h1>
-            
-            <br><br>
-            
-            <div class="form-group">
-                <input style="font-family:Futura; color: #495057" id="input" type="text" name="search" class="form-control" placeholder='Type any keyword like “dogs”'>
-            </div>
-            <button style="font-family:Futura; background-color:#86BBD8" type="submit" class="btn btn-info"> Search </button>
-        </form>
-        <form class="form-inline global-search">
+        <button style="font-family:DM Sans; background-color:#86BBD8" type="submit" class="btn btn-info"> Search </button>
+    </form>
+    <form class="form-inline global-search">
         {% if data %}
-            <h1>{{output_message}}</h1>
-            {% for d in data %}  
-                <br>
-                <p>{{d}}</p>
-            {% endfor %}
-        {% endif %}
-        </form>
-    </body>
+        <h1>{{output_message}}</h1>
+        {% for d in data %}
+        <br>
+        <p><a href={{d[1]}}>{{d[0]}}</a></p>
+        {% endfor %} {% endif %}
+    </form>
+</body>
 
 </html>
