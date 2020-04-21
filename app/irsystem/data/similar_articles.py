@@ -5,11 +5,11 @@ import math
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer 
 import re
-import matplotlib.pyplot as plt
 import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 from numpy import linalg as LA
 
+<<<<<<< HEAD
 # import nltk
 # import ssl
 
@@ -23,6 +23,9 @@ from numpy import linalg as LA
 # nltk.download()
 
 data_file_name = "total_data.json"
+=======
+data_file_name = "final_data.json"
+>>>>>>> fa04a1647f3bd4a9f37e53b1ae771589ea54cdc6
 
 def load_json_file(name):
     current_directory = os.path.dirname(os.path.realpath(__file__))
@@ -79,21 +82,21 @@ def get_sim(art1, art2, article_by_vocab, article_title_to_index):
     art2vec = article_by_vocab[article_title_to_index[art2]]
     num = art1vec.dot(art2vec)
     denom = np.linalg.norm(art1vec) * np.linalg.norm(art2vec)
-    return num/denom
+    return num/(denom+1)
 
 articleTitle1 = 'After 13 Years of Social Distancing, Giant Pandas Finally Mate During Peaceful COVID-19 Zoo Closures'
 articleTitle2 = '16-Year-Old Has Been Using His Flying Lessons to Deliver Medical Supplies to Rural Hospitals Fighting COVID'
 articleTitle3 = "Trebek to Special Jeopardy! Guest: 'I Don't Normally Do This'"
 
-# print("Similarity: pandas in covid vs flying lessons in covid")
-# print("======")
-# test1 = get_sim(articleTitle1, articleTitle2, article_by_vocab, article_title_to_index)
-# print(test1)
+print("Similarity: pandas in covid vs flying lessons in covid")
+print("======")
+test1 = get_sim(articleTitle1, articleTitle2, article_by_vocab, article_title_to_index)
+print(test1)
 
-# print("Similarity: pandas in covid vs jeopardy")
-# print("======")
-# test2 = get_sim(articleTitle1, articleTitle3, article_by_vocab, article_title_to_index)
-# print(test2)
+print("Similarity: pandas in covid vs jeopardy")
+print("======")
+test2 = get_sim(articleTitle1, articleTitle3, article_by_vocab, article_title_to_index)
+print(test2)
 
 def top_terms(movs, article_by_vocab, index_to_vocab, article_title_to_index, top_k=10):
     """Returns a list of the top k similar terms (in order) between the
@@ -144,7 +147,7 @@ def build_article_sims_cos(n_arts, article_index_to_title, article_by_vocab, art
 articles_sims_cos = build_article_sims_cos(num_articles, article_index_to_title, article_by_vocab, 
 article_title_to_index, get_sim)
 
-def get_ranked_movies(article, matrix):
+def get_ranked_articles(article, matrix):
     """
     Return sorted rankings (most to least similar) of articles as 
     a list of two-element tuples (title, score)
@@ -171,18 +174,19 @@ def print_top(art, matrix, sim_type, k=10):
     Print the k most and least similar movies to articleTitle1 (pandas in covid)
     """
     
-    art_score_lst = get_ranked_movies(art, matrix)
+    art_score_lst = get_ranked_articles(art, matrix)
     
-    print("Top {} most similar movies to {} [{}]".format(k, articleTitle1, sim_type))
+    print("Top {} most similar articles to {} [{}]".format(k, articleTitle1, sim_type))
     print("======")
     for (art, score) in art_score_lst[:k]:
         print("%.3f %s" % (score, art))
 
     print()
     
-    print("Top {} least similar movies to {} [{}]".format(k, articleTitle1, sim_type))
+    print("Top {} least similar articles to {} [{}]".format(k, articleTitle1, sim_type))
     print("======")
     for (art, score) in art_score_lst[-k:][::-1]:
         print("%.3f %s" % (score, art))
+
 
 print_top(articleTitle1, articles_sims_cos, 'cosine sim')
