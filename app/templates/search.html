@@ -10,8 +10,6 @@
 <body>
     <div class="topcorner">
         <img src="/static/logo.png" alt="CUSmileLogo">
-        <p style="font-family:DM Sans">Student Name: ({{ netid }})</p>
-        <!-- test -->
     </div>
     <form class="form-inline global-search">
         <h1 style="font-size: 40px; font-family:DM Sans; color: #272343">
@@ -23,7 +21,8 @@
         <div class="form-group">
             <input style="font-family:DM Sans; color: #495057" id="input" type="text" name="search" class="form-control" placeholder='Type any keyword like “dogs”'>
         </div>
-        <button style="font-family:DM Sans; background-color:#86BBD8" type="submit" class="btn btn-info"> Search </button>
+        <button style="font-family:DM Sans; background-color:#86BBD8" type="submit" class="btn btn-info"> Search
+        </button>
     </form>
     <form class="form-inline global-search">
         {% if data %}
@@ -33,6 +32,9 @@
         <p><a href={{d[1]}}>{{d[0]}}</a></p>
         {% endfor %} {% endif %}
     </form>
+    <footer style="font-family:DM Sans">
+        Student Name: ({{ netid }})
+    </footer>
 </body>
 
 </html>

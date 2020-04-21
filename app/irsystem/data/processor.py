@@ -221,7 +221,7 @@ def run(feature, input_data):
     doc_term_matrix = create_doc_term_matrix(input_data, feature + '_toks')
     # Create inverted index
     inverted_index = create_inverted_index(doc_term_matrix)
-    inverted_index = remove_non_frequent_types(inverted_index, 2)
+    inverted_index = remove_non_frequent_types(inverted_index, 3)
     # Compute idf values
     idf_values = create_idf(inverted_index)
     # Create tfidf matrix
@@ -251,7 +251,7 @@ def main():
     num_articles = len(data)
     print(str(num_articles) + ' articles loaded')
     print('Each article has the following features:')
-    print(data[477].keys())
+    print(data[0].keys())
     # Tokenize transcripts and titles
     data = tokenize_articles(data, 'transcript', tokenize)
     data = tokenize_articles(data, 'title', tokenize)
