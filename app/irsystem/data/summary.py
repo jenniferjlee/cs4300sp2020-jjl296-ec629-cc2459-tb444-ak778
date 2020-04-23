@@ -1,0 +1,113 @@
+from nltk.corpus import stopwords
+from nltk.cluster.util import cosine_distance
+import numpy as np
+import networkx as nx
+import os
+import json
+import nltk
+from nltk import tokenize
+
+# nltk.download('punkt')
+
+def load_json_file(name):
+    current_directory = os.path.dirname(os.path.realpath(__file__))
+    file_path = os.path.join(current_directory, name)
+    with open(file_path, encoding = 'utf-8') as json_file:
+        data = json.load(json_file)
+    return data
+
+# Steps based off of https://towardsdatascience.com/understand-text-summarization-and-create-your-own-summarizer-in-python-b26a9f09fc70
+# 1. Input document
+# 2. Rank sentences similarity
+# 3. Weigh sentences
+# 4. select sentences with higher rank
+
+
+# return transcript given article_title
+def find_transcript(article_title, data):
+  for article in data:
+    if article['title'] == article_title:
+      return article['transcript']
+
+def read_article(transcript):
+  return tokenize.sent_tokenize(transcript.rstrip())
+    # article = transcript.split(". ")
+    # sentences = []
+    # for sentence in article:
+    #   modified_sentence = sentence.replace("[^a-zA-Z]", " ").split(" ")
+    #   sentences.append(modified_sentence2)
+    # return sentences
+
+def sentence_similarity(sent1, sent2, stopwords=None):
+    if stopwords is None:
+        stopwords = []
+ 
+    sent1 = [w.lower() for w in sent1]
+    sent2 = [w.lower() for w in sent2]
+ 
+    all_words = list(set(sent1 + sent2))
+ 
+    vector1 = [0] * len(all_words)
+    vector2 = [0] * len(all_words)
+ 
+    # build the vector for the first sentence
+    for w in sent1:
+        if w in stopwords:
+            continue
+        vector1[all_words.index(w)] += 1
+ 
+    # build the vector for the second sentence
+    for w in sent2:
+        if w in stopwords:
+            continue
+        vector2[all_words.index(w)] += 1
+    return 1 - cosine_distance(vector1, vector2)    
+
+def build_similarity_matrix(sentences, stop_words):
+    # Create an empty similarity matrix
+    similarity_matrix = np.zeros((len(sentences), len(sentences)))
+ 
+    for idx1 in range(len(sentences)):
+        for idx2 in range(len(sentences)):
+            if idx1 == idx2: #ignore if both are same sentences
+                continue 
+            similarity_matrix[idx1][idx2] = sentence_similarity(sentences[idx1], sentences[idx2], stop_words)
+
+    return similarity_matrix
+
+def generate_summary(transcript, top_n=5):
+    stop_words = stopwords.words('english')
+    summarize_text = []
+
+    sentences =  read_article(transcript)
+    sentence_similarity_martix = build_similarity_matrix(sentences, stop_words)
+    sentence_similarity_graph = nx.from_numpy_array(sentence_similarity_martix)
+    scores = nx.pagerank(sentence_similarity_graph)
+    ranked_sentence = sorted(((scores[i],s) for i,s in enumerate(sentences)), reverse=True)    
+    # print("Indexes of top ranked_sentence order are ", ranked_sentence)    
+    
+    for i in range(top_n):
+      summarize_text.append(ranked_sentence[i][1])
+
+    return summarize_text
+
+def main():
+  # Load in data
+  data_file_name = "final_data.json"
+  data = load_json_file(data_file_name)
+
+  title = "A tiny Colorado town opened its arms to over 700 stranded travelers this weekend"
+  title2 = "16-Year-Old Has Been Using His Flying Lessons to Deliver Medical Supplies to Rural Hospitals Fighting COVID"
+  
+  transcript = find_transcript(title2, data)
+
+  sentences = read_article(transcript)
+
+  summary = generate_summary( transcript, 1)
+
+  for line in summary:
+    print(line)
+
+  
+if __name__ == "__main__":
+    main()

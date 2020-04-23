@@ -3,10 +3,18 @@ import re
 import matplotlib.pyplot as plt
 from collections import defaultdict
 import numpy as np
+import os
 
 data = []
-with open("data/total_data.json", "r") as read_file:
-    data = json.load(read_file)
+
+def load_json_file(name):
+    current_directory = os.path.dirname(os.path.realpath(__file__))
+    file_path = os.path.join(current_directory, name)
+    with open(file_path, encoding = 'utf-8') as json_file:
+        data = json.load(json_file)
+    return data
+
+data = load_json_file('final_data.json')
 
 # data: list of objects with keys: 'source', 'title', 'url', 'date', 'transcript'
 
@@ -55,7 +63,8 @@ def whichYear(data):
     return yearAndFreq
 
 yearFreq = whichYear(data)
-# print(datesFreq)
+print(datesFreq)
+
 # {2020: 439, 2018: 249, 2019: 374}
 
 # labels = '2018', '2019', '2020'
@@ -69,10 +78,10 @@ yearFreq = whichYear(data)
 # plt.show()
 
 
-# plt.title('Frequency of Article Dates') 
-# plt.xlabel('Dates (2020 to 2018)')
-# plt.ylabel('Frequency')
-# x = datesFreq.keys()
-# y = datesFreq.values()
-# plt.scatter(x, y)
-# plt.show()
+plt.title('Frequency of Article Dates') 
+plt.xlabel('Dates')
+plt.ylabel('Frequency')
+x = datesFreq.keys()
+y = datesFreq.values()
+plt.scatter(x, y)
+plt.show()
