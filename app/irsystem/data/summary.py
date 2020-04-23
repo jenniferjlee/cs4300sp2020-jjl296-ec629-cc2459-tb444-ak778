@@ -93,21 +93,22 @@ def generate_summary(transcript, top_n=5):
 
 def main():
   # Load in data
-  data_file_name = "final_data.json"
-  data = load_json_file(data_file_name)
+    data_file_name = "final_data.json"
+    data = load_json_file(data_file_name)
 
-  title = "A tiny Colorado town opened its arms to over 700 stranded travelers this weekend"
-  title2 = "16-Year-Old Has Been Using His Flying Lessons to Deliver Medical Supplies to Rural Hospitals Fighting COVID"
-  
-  transcript = find_transcript(title2, data)
+#   title = "A tiny Colorado town opened its arms to over 700 stranded travelers this weekend"
+#   title2 = "16-Year-Old Has Been Using His Flying Lessons to Deliver Medical Supplies to Rural Hospitals Fighting COVID"
+    title_and_transcripts = []
+    for article in data:
+        transcript = article['transcript']
+        title = article['title']
+        summary = generate_summary(transcript, 1)
+        seperator = ' '
+        summary_string = seperator.join(summary)
+        title_and_transcripts.append({'title':title, 'summary': summary_string})
 
-  sentences = read_article(transcript)
-
-  summary = generate_summary( transcript, 1)
-
-  for line in summary:
-    print(line)
-
+    with open('summaries.json', 'w') as json_file:
+        json.dump(title_and_transcripts, json_file)
   
 if __name__ == "__main__":
     main()

@@ -60,8 +60,8 @@
 
 .btn:hover {
     background-color: white;
-    color: #4285f4;
-    border: #4285f4;
+    color: #FFF1A7;
+    border: #FFF1A7;
 }
 
 .global-search .form-control {
@@ -110,3 +110,4 @@ footer {
     width: 100%;
     text-align: center;
 }
+
