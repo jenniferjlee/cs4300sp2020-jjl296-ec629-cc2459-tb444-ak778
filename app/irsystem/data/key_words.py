@@ -3,8 +3,15 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer 
 import re
 import os
+import json
 
 data_file_name = "final_data1.json"
+
+def save_json_file(name, input_data):
+    current_directory = os.path.dirname(os.path.realpath(__file__))
+    file_path = os.path.join(current_directory, name)
+    with open(file_path, 'w') as f:
+        f.write(json.dumps(input_data, ensure_ascii=False,indent=2))
 
 def tokenize(text, stem_words = True):
     """Returns a tuple containing 
@@ -79,6 +86,33 @@ def make_keywords(row, title_scale = 0.3):
                 break
     row["keywords"] = top_20
 
+def create_inverted_index(input_data):
+    """creates the inverted index
+    
+    Arguments
+    =========
+    input_data: dataframe with keywords column (dictionary word: frequency)
+    
+    Returns
+    =======
+    {String : list of tuples}
+    
+    """
+    idx = {}
+    doc_id = 0
+    for index, row in input_data.iterrows():
+        for word, freq in row["keywords"].items():
+            if idx.get(word) is None:
+                idx[word] = []
+            idx.get(word).append((index,freq))
+    return idx
+
+def run(input_data):
+    """
+    Constructs data structures for search
+    """
+    inverted_index = create_inverted_index(input_data)
+    save_json_file('inverted_index_keywords.json', inverted_index)
 
 def main():
     current_directory = os.path.dirname(os.path.realpath(__file__))
@@ -91,6 +125,10 @@ def main():
     with open('total_data_keywords.json', 'w', encoding='utf-8') as file:
         df.to_json(file, force_ascii=False, orient='records')
     print('Successfully Created and Saved Files')
+    
+    keywords = pd.read_json ('total_data_keywords.json', convert_dates=False)
+    run(keywords)
+    print("Successfully made inverted index")
 
 
 
