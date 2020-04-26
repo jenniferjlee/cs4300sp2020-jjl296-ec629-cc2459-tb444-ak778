@@ -6,6 +6,7 @@ import os
 import json
 import nltk
 from nltk import tokenize
+import re
 
 # nltk.download('punkt')
 
@@ -94,32 +95,34 @@ def generate_summary(transcript, top_n=5):
 def main():
 
     # Load in data
-    data_file_name = "en_final_data.json"
+    data_file_name = "final_data1.json"
     data = load_json_file(data_file_name)
-    print(len(data))
 
-
-    short_transcripts = 0
-    for article in data:
-        if len(article['transcript']) < 250:
-            # print(article['transcript'])
-            short_transcripts += 1
-    print(short_transcripts)
+  
 
 
     # #   title = "A tiny Colorado town opened its arms to over 700 stranded travelers this weekend"
     # #   title2 = "16-Year-Old Has Been Using His Flying Lessons to Deliver Medical Supplies to Rural Hospitals Fighting COVID"
-    # title_and_transcripts = []
-    # for article in data:
-    #     transcript = article['transcript']
-    #     title = article['title']
-    #     summary = generate_summary(transcript, 1)
-    #     seperator = ' '
-    #     summary_string = seperator.join(summary)
-    #     title_and_transcripts.append({'title':title, 'summary': summary_string})
+    title_and_transcripts = []
+    for article in data:
+        transcript = article['transcript']
+        title = article['title']
+        summary = generate_summary(transcript, 1)
+        seperator = ' '
+        summary_string = seperator.join(summary)
+        summary_string.encode('ascii', 'ignore')
+        summary_string.rstrip()
 
-    # with open('summaries.json', 'w') as json_file:
-    #     json.dump(title_and_transcripts, json_file)
+        # print(summary_string)
+        # print('\n')
+        print(title)
+
+        title_and_transcripts.append({'title':title, 'summary': summary_string})
+
+    with open('summaries.json', 'w') as json_file:
+        json.dump(title_and_transcripts, json_file)
+
+
   
 if __name__ == "__main__":
     main()
