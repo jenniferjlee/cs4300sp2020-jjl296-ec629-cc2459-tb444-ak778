@@ -18,6 +18,7 @@ documents = load_json_file('final_data1.json')
 inverted_index = load_json_file('transcript_inverted_index1.json')
 tfidf_matrix = load_json_file('transcript_tfidf_matrix1.json')
 norms = load_json_file('transcript_norms1.json')
+# inverted_index_keywords = load_json_file('inverted_index_keywords.json')
 
 
 
@@ -35,6 +36,7 @@ def search():
         output_message=output_message, data=data)
     else:
         results = search_tfdf_method(query, tfidf_matrix, inverted_index, norms, tokenize)
+        # results = search_keyword_method(query, len(tfidf_matrix), inverted_index_keywords, tokenize)
         top_5 = get_top_k(results, 5, documents)
         output_message = "Your search: " + query
         data = top_5
