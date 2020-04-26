@@ -25,10 +25,14 @@ norms = load_json_file('transcript_norms1.json')
 def search():
     query = request.args.get('search')
     if not query:
-        data = []
-        src = []
-        url = []
-        output_message = 'No results'
+        # data = []
+        # src = []
+        # url = []
+        # output_message = 'No results'
+        output_message = "Let's C U Smile!"
+        data = get_random(documents)
+        return render_template('search.html', name=project_name, netid=net_id, 
+        output_message=output_message, data=data)
     else:
         results = search_tfdf_method(query, tfidf_matrix, inverted_index, norms, tokenize)
         top_5 = get_top_k(results, 5, documents)
