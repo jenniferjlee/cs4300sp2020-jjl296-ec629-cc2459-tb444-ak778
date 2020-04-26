@@ -16,7 +16,7 @@
         </button>
         <script type="text/javascript">
             document.getElementById("CUSmileLogo").onclick = function () {
-                location.href = "http://0.0.0.0:5000";
+                location.href = "http://localhost:5000";
             };
         </script>
     </div>
@@ -43,12 +43,12 @@
         <h1>{{output_message}}</h1>
         {% for d in data %}
         <br>
-        <p><a href={{d[1]}}>{{d[0]}} 
-        </a></p>
-        <div class ="dropdown">
+        <p><a href={{d[1]}}>{{d[0]}}
+            </a></p>
+        <div class="dropdown">
             <button class="dropbtn">More Info</button>
-                <div class = "dropdown-content">
-                    <div id="parent">
+            <div class="dropdown-content">
+                <div id="parent">
                     <div id="child">
                         Date: {{d[2]}}
                     </div>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
         {% endfor %}
         {% endif %}
     </form>
@@ -70,17 +70,17 @@
         </h1>
         <div class="circle">
             <p>
-            circle 1
+                circle 1
             </p>
         </div>
         <div class="circle">
             <p>
-            circle 2
+                circle 2
             </p>
         </div>
         <div class="circle">
             <p>
-            circle 3
+                circle 3
             </p>
         </div>
     </form>
