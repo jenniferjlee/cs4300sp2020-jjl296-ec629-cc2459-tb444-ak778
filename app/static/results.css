@@ -37,6 +37,7 @@ a:active {
     color: white;
     border: none;
     cursor: pointer;
+    pointer-events: none;
 }
 
 .dropdown:hover .dropbtn {

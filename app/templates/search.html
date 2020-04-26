@@ -43,26 +43,34 @@
         <h1>{{output_message}}</h1>
         {% for d in data %}
         <br>
-        <p><a href={{d[1]}}>{{d[0]}}
+        <<<<<<< HEAD <p><a href={{d[1]}}>{{d[0]}}
             </a></p>
-        <div class="dropdown">
-            <button class="dropbtn">More Info</button>
-            <div class="dropdown-content">
-                <div id="parent">
-                    <div id="child">
-                        Date: {{d[2]}}
-                    </div>
-                    <div id="child">
-                        Source: {{d[3]}}
-                    </div>
-                    <div id="child">
-                        Summary: {{d[4]}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-        {% endif %}
+            <div class="dropdown">
+                <button class="dropbtn">More Info</button>
+                <div class="dropdown-content">
+                    <div id="parent">
+                        =======
+                        <p><a href={{d[1]}}>{{d[0]}}
+                            </a></p>
+                        <div class="dropdown">
+                            <button class="dropBtn">More Info</button>
+                            <div class="dropdown-content">
+                                <div id="parent">
+                                    >>>>>>> 4baeade5e9459e56e96eb9ee4eb1bd1da671d684
+                                    <div id="child">
+                                        Date: {{d[2]}}
+                                    </div>
+                                    <div id="child">
+                                        Source: {{d[3]}}
+                                    </div>
+                                    <div id="child">
+                                        Summary: {{d[4]}}
+                                    </div>
+                                </div>
+                            </div>
+                            <<<<<<< HEAD </div> </div>=======</div>>>>>>>> 4baeade5e9459e56e96eb9ee4eb1bd1da671d684
+                                {% endfor %}
+                                {% endif %}
     </form>
     <form class="popular-topics">
         <h1 style="font-size: 40px; font-family:DM Sans; color: #272343">
