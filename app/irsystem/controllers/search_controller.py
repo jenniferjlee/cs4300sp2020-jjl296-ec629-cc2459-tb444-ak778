@@ -10,7 +10,7 @@ project_name = "CUSmiles"
 net_id = "Jennifer Lee: jjl296, Camilo Cedeno-Tobon: cc2459, Tanmay Bansal: tb444, Alina Kim: ak778, Ein Chang: ec629 "
 
 # Camilo's changes
-documents = load_json_file('final_data_url.json')
+documents = load_json_file('final_data2.json')
 transcript_idf_values = load_json_file('transcript_idf_values.json')
 transcript_inverted_index = load_json_file('transcript_inverted_index.json')
 transcript_norms = load_json_file('transcript_norms.json')
@@ -19,10 +19,10 @@ title_inverted_index = load_json_file('title_inverted_index.json')
 title_norms = load_json_file('title_norms.json')
 
 # Ein's changes
-documents = load_json_file('final_data2.json')
+"""documents = load_json_file('final_data2.json')
 inverted_index = load_json_file('transcript_inverted_index1.json')
 tfidf_matrix = load_json_file('transcript_tfidf_matrix1.json')
-norms = load_json_file('transcript_norms1.json')
+norms = load_json_file('transcript_norms1.json')"""
 
 
 
