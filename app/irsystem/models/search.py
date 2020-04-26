@@ -4,6 +4,7 @@ import math
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer 
 import re
+import random
 
 def search_tfdf_method(query, input_tfidf_matrix, input_inverted_index, input_doc_norms, tokenize_method):
     n_docs = len(input_tfidf_matrix)
@@ -34,5 +35,9 @@ def get_top_k(results, k, input_data):
         input_data[doc_id].get('summary'))
         output.append(title)
     return output
+
+def get_random(input_data):
+    doc_id = random.randint(0,len(input_data))
+    return [(input_data[doc_id]['title'], input_data[doc_id].get('url'))]
 
 
