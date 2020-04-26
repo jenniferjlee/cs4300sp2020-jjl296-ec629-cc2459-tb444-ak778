@@ -14,7 +14,8 @@ are created here and saved as json files.
 
 
 """
-data_file_name = "final_data_url.json"
+# data_file_name = "final_data_url.json"
+data_file_name = "final_data1.json"
 
 def load_json_file(name):
     current_directory = os.path.dirname(os.path.realpath(__file__))
@@ -229,9 +230,12 @@ def run(feature, input_data):
     # Compute doc norms
     norms = compute_doc_norms(tfidf_matrix)
     # Save data structures
-    save_json_file(feature + '_inverted_index.json', inverted_index)
-    save_json_file(feature + '_tfidf_matrix.json', tfidf_matrix)
-    save_json_file(feature + '_norms.json', norms)
+    # save_json_file(feature + '_inverted_index.json', inverted_index)
+    # save_json_file(feature + '_tfidf_matrix.json', tfidf_matrix)
+    # save_json_file(feature + '_norms.json', norms)
+    save_json_file(feature + '_inverted_index1.json', inverted_index)
+    save_json_file(feature + '_tfidf_matrix1.json', tfidf_matrix)
+    save_json_file(feature + '_norms1.json', norms)
 
 
 
@@ -240,14 +244,6 @@ def main():
     # Load in data
     data = load_json_file(data_file_name)
     # Quick description of dataset
-
-    #before pre-processing transcipts stats:
-    # there are some article repeats so need to process them
-    # total_data.json: 1062 articles (from guardian, newser, goodnewsnetwork)
-    # total_reddit_data1.json: 2742 articles (2013-2018)
-    # total_reddit_data2.json: 730 articles (2019-2020)
-    # 3472 articles from reddit + 1062 = 4534 total articles
-
     num_articles = len(data)
     print(str(num_articles) + ' articles loaded')
     print('Each article has the following features:')

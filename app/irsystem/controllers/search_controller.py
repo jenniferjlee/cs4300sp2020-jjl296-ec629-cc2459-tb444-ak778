@@ -9,10 +9,15 @@ from app.irsystem.models.search import *
 project_name = "CUSmiles"
 net_id = "Jennifer Lee: jjl296, Camilo Cedeno-Tobon: cc2459, Tanmay Bansal: tb444, Alina Kim: ak778, Ein Chang: ec629 "
 
-documents = load_json_file('final_data_url.json')
-inverted_index = load_json_file('transcript_inverted_index.json')
-tfidf_matrix = load_json_file('transcript_tfidf_matrix.json')
-norms = load_json_file('transcript_norms.json')
+# documents = load_json_file('final_data_url.json')
+# inverted_index = load_json_file('transcript_inverted_index.json')
+# tfidf_matrix = load_json_file('transcript_tfidf_matrix.json')
+# norms = load_json_file('transcript_norms.json')
+
+documents = load_json_file('final_data1.json')
+inverted_index = load_json_file('transcript_inverted_index1.json')
+tfidf_matrix = load_json_file('transcript_tfidf_matrix1.json')
+norms = load_json_file('transcript_norms1.json')
 
 
 
@@ -30,6 +35,6 @@ def search():
         output_message = "Your search: " + query
         data = top_5
         if (len(top_5)==0):
-            data = ['No Results Found']
+            data = [('No Results Found', '')]
     return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data)
 
