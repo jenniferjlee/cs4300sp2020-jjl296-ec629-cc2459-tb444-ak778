@@ -69,3 +69,9 @@ a:active {
     height: 5em;
     shape-outside: circle(50%);
 }
+
+h2 {
+    font-family: "DM Sans";
+        color: #495057;
+        text-align: center;
+}

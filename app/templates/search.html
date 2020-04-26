@@ -43,24 +43,25 @@
         <h1>{{output_message}}</h1>
         {% for d in data %}
         <br>
-        <p><a href={{d[1]}}>{{d[0]}} 
-        </a></p>
+        <h2><a href={{d[1]}}>{{d[0]}} 
+        </a></h2>
         <div class ="dropdown">
             <button class="dropBtn">More Info</button>
                 <div class = "dropdown-content">
-                    <div id="parent">
-                    <div id="child">
-                        Date: {{d[2]}}
-                    </div>
-                    <div id="child">
-                        Source: {{d[3]}}
-                    </div>
-                    <div id="child">
-                        Summary: {{d[4]}}
-                    </div>
-                    </div>
+                    Coming Soon!
                 </div>
         </div> 
+        <div id="parent">
+            <div id="child">
+                Date: {{d[2]}}
+            </div>
+            <div id="child">
+                Source: {{d[3]}}
+            </div>
+            <div id="child">
+                Summary: {{d[4]}}
+            </div>
+            </div>
         {% endfor %}
         {% endif %}
     </form>
