@@ -35,7 +35,19 @@
         <h1>{{output_message}}</h1>
         {% for d in data %}
         <br>
-        <p><a href={{d[1]}}>{{d[0]}}</a></p>
+        <p><a href={{d[1]}}>{{d[0]}} 
+        </a></p>
+        <div id="parent">
+            <div id="child">
+                Date: {{d[2]}}
+            </div>
+            <div id="child">
+                Source: {{d[3]}}
+            </div>
+            <div id="child">
+                Summary: {{d[4]}}
+            </div>
+        </div> 
         {% endfor %} {% endif %}
     </form>
     <footer style="font-family:DM Sans">

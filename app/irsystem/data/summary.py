@@ -92,14 +92,11 @@ def generate_summary(transcript, top_n=5):
 
     return summarize_text
 
-def main():
+def main2():
 
     # Load in data
     data_file_name = "final_data1.json"
     data = load_json_file(data_file_name)
-
-  
-
 
     # #   title = "A tiny Colorado town opened its arms to over 700 stranded travelers this weekend"
     # #   title2 = "16-Year-Old Has Been Using His Flying Lessons to Deliver Medical Supplies to Rural Hospitals Fighting COVID"
@@ -122,7 +119,40 @@ def main():
     with open('summaries.json', 'w') as json_file:
         json.dump(title_and_transcripts, json_file)
 
+def main3():
+    # Load in data
+    data_file_name = "summaries.json"
+    data = load_json_file(data_file_name)
 
-  
+    new_data = []
+    for post in data:
+        new_title = post['title'].replace(r"[a-z]+", ' ')
+        new_title = (new_title.encode('ascii', 'ignore')).decode("utf-8")
+        new_sum = post['summary'].replace(r"[a-z]+", ' ')
+        new_sum = (new_sum.encode('ascii', 'ignore')).decode("utf-8")
+        new_data.append({'title': new_title, 'summary': new_sum})
+
+    with open('summaries2.json', 'w') as json_file:
+        json.dump(new_data, json_file)
+
+# add summaries to final_data1.json
+def main():
+    total = []
+    data_file_name = "summaries2.json"
+    data_summaries = load_json_file(data_file_name)
+
+    data_file_name2 = "final_data1.json"
+    data = load_json_file(data_file_name2)
+    for i, post in enumerate(data):
+        title_name = post['title']
+        summary = data_summaries[i]['summary']
+        total.append(
+            {'title':post['title'], 'url': post['url'],
+        'date': post['date'],'transcript': post['transcript'], 'source': post['source'],
+        'summary': summary})
+
+    with open('final_data2.json', 'w') as json_file:
+        json.dump(total, json_file)
+
 if __name__ == "__main__":
     main()
