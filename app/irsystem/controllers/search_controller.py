@@ -14,7 +14,7 @@ net_id = "Jennifer Lee: jjl296, Camilo Cedeno-Tobon: cc2459, Tanmay Bansal: tb44
 # tfidf_matrix = load_json_file('transcript_tfidf_matrix.json')
 # norms = load_json_file('transcript_norms.json')
 
-documents = load_json_file('final_data1.json')
+documents = load_json_file('final_data2.json')
 inverted_index = load_json_file('transcript_inverted_index1.json')
 tfidf_matrix = load_json_file('transcript_tfidf_matrix1.json')
 norms = load_json_file('transcript_norms1.json')

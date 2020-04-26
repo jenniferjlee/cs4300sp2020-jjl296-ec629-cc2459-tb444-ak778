@@ -111,3 +111,6 @@ footer {
     text-align: center;
 }
 
+#parent{ background: #C1DEF9;padding:10px;}
+
+.child {background:#ccc;height:200px;margin:20px;}

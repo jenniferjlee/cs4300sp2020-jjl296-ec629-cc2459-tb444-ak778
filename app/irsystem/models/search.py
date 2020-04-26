@@ -46,7 +46,10 @@ def get_top_k(results, k, input_data):
     output = []
     for i in range(min(k, len(results))):
         doc_id = results[i][1]
-        title = (input_data[doc_id]['title'], input_data[doc_id].get('url'))
+        # ['title', 'url', 'date', 'source', 'summary']
+        title = (input_data[doc_id]['title'], input_data[doc_id].get('url'),
+        input_data[doc_id].get('date'), input_data[doc_id].get('source'),
+        input_data[doc_id].get('summary'))
         output.append(title)
     return output
 

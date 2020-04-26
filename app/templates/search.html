@@ -11,7 +11,14 @@
 
 <body>
     <div class="topcorner">
-        <img src="static/logo2.png" alt="CUSmileLogo">
+        <button id="CUSmileLogo" class=logoBtn>
+            <img src="static/logo2.png" alt="CUSmileLogo">
+        </button>
+        <script type="text/javascript">
+            document.getElementById("CUSmileLogo").onclick = function () {
+                location.href = "http://0.0.0.0:5000";
+            };
+        </script>
     </div>
     <form class="form-inline global-search topmost">
         <h1 style="font-size: 40px; font-family:DM Sans; color: #272343">
@@ -29,18 +36,55 @@
             <button style="font-family:DM Sans; background-color:#86BBD8" type="submit" class="btn btn-info"
                 id="submitButton"> Give me Anything!
             </button>
-
         </div>
-
     </form>
     <form class="form-inline global-search">
         {% if data %}
         <h1>{{output_message}}</h1>
         {% for d in data %}
         <br>
-        <p><a href={{d[1]}}>{{d[0]}}</a></p>
-        {% endfor %} {% endif %}
+        <p><a href={{d[1]}}>{{d[0]}} 
+        </a></p>
+        <div class ="dropdown">
+            <button class="dropbtn">More Info</button>
+                <div class = "dropdown-content">
+                    <div id="parent">
+                    <div id="child">
+                        Date: {{d[2]}}
+                    </div>
+                    <div id="child">
+                        Source: {{d[3]}}
+                    </div>
+                    <div id="child">
+                        Summary: {{d[4]}}
+                    </div>
+                </div>
+            </div>
+        </div> 
+        {% endfor %}
+        {% endif %}
     </form>
+    <form class="popular-topics">
+        <h1 style="font-size: 40px; font-family:DM Sans; color: #272343">
+            Search popular topics
+        </h1>
+        <div class="circle">
+            <p>
+            circle 1
+            </p>
+        </div>
+        <div class="circle">
+            <p>
+            circle 2
+            </p>
+        </div>
+        <div class="circle">
+            <p>
+            circle 3
+            </p>
+        </div>
+    </form>
+
     <footer style="font-family:DM Sans">
         Created by: {{ netid }}
     </footer>
