@@ -39,3 +39,10 @@ def search():
     return render_template('search.html', name=project_name, netid=net_id, 
     output_message=output_message, data=data)
 
+
+@irsystem.route('/random', methods=['GET'])
+def random():
+    output_message = "Let's C U Smile!"
+    data = get_random(documents)
+    return render_template('search.html', name=project_name, netid=net_id, 
+    output_message=output_message, data=data)

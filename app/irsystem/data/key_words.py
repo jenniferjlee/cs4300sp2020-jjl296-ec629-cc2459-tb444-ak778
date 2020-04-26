@@ -4,7 +4,7 @@ from nltk.stem import PorterStemmer
 import re
 import os
 
-data_file_name = "total_data_url.json"
+data_file_name = "final_data1.json"
 
 def tokenize(text, stem_words = True):
     """Returns a tuple containing 
