@@ -237,9 +237,9 @@ def run(feature, input_data, min_df=0):
     save_json_file(feature + '_norms.json', norms)
     
     #Ein's changes
-    save_json_file(feature + '_inverted_index1.json', inverted_index)
+    """save_json_file(feature + '_inverted_index1.json', inverted_index)
     save_json_file(feature + '_tfidf_matrix1.json', tfidf_matrix)
-    save_json_file(feature + '_norms1.json', norms)
+    save_json_file(feature + '_norms1.json', norms)"""
 
 
 

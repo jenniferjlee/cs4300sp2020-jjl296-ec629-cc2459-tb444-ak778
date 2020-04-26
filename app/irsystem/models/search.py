@@ -81,6 +81,8 @@ def get_combined_results(output_A, output_B, weight_A, weight_B):
 
 def get_random(input_data):
     doc_id = random.randint(0,len(input_data))
-    return [{'title': input_data[doc_id].get('title'), 'url':input_data[doc_id].get('url')}]
+    return [{'title': input_data[doc_id].get('title'), 'url':input_data[doc_id].get('url'),
+            'date':input_data[doc_id].get('date'), 'score':input_data[doc_id].get('score'),
+            'source':input_data[doc_id].get('source'), 'summary':input_data[doc_id].get('summary')}]
 
 
