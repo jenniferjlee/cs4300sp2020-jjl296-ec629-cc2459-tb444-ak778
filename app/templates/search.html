@@ -37,17 +37,6 @@
                 id="submitButton"> Give me Anything!
             </button>
         </div>
-
-        <div class="circle">
-            <p>
-                circle 1
-            </p>
-        </div>
-        <div class="circle">
-            <p>
-                circle 2
-            </p>
-        </div>
     </form>
     <form class="form-inline global-search">
         {% if data %}
@@ -72,10 +61,30 @@
                 </div>
             </div>
         </div> 
-        {% endfor %}         
+        {% endfor %}
         {% endif %}
-
     </form>
+    <form class="popular-topics">
+        <h1 style="font-size: 40px; font-family:DM Sans; color: #272343">
+            Search popular topics
+        </h1>
+        <div class="circle">
+            <p>
+            circle 1
+            </p>
+        </div>
+        <div class="circle">
+            <p>
+            circle 2
+            </p>
+        </div>
+        <div class="circle">
+            <p>
+            circle 3
+            </p>
+        </div>
+    </form>
+
     <footer style="font-family:DM Sans">
         Created by: {{ netid }}
     </footer>
