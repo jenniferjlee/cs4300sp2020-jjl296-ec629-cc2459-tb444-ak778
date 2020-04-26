@@ -31,6 +31,22 @@ def search_tfdf_method(query, input_inverted_index,
             sim.append((val, i))
     return sim
 
+def search_keyword_method(query, n_docs, input_inverted_index, tokenize_method):
+    q_tokens = tokenize_method(query)
+    scores = np.zeros(n_docs)
+    for t in set(q_tokens):
+         if (input_inverted_index.get(t) is not None):
+            for tup in input_inverted_index.get(t):
+                doc_id = tup[0]
+                scores[doc_id] += tup[1]
+    sim = []
+    for i in range(n_docs):
+        if(scores[i] > 0):
+            sim.append((scores[i], i))
+    sim.sort(key = lambda x: x[0], reverse = True)
+    return sim
+
+
 
 def get_top_k(results, k, input_data):
     results.sort(key = lambda x: x[0], reverse = True)
