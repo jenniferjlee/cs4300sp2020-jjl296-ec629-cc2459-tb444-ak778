@@ -9,17 +9,20 @@ from app.irsystem.models.search import *
 project_name = "CUSmiles"
 net_id = "Jennifer Lee: jjl296, Camilo Cedeno-Tobon: cc2459, Tanmay Bansal: tb444, Alina Kim: ak778, Ein Chang: ec629 "
 
+# Camilo's changes
 documents = load_json_file('final_data_url.json')
-
 transcript_idf_values = load_json_file('transcript_idf_values.json')
 transcript_inverted_index = load_json_file('transcript_inverted_index.json')
-#transcript_tfidf_matrix = load_json_file('transcript_tfidf_matrix.json')
 transcript_norms = load_json_file('transcript_norms.json')
-
 title_idf_values = load_json_file('title_idf_values.json')
 title_inverted_index = load_json_file('title_inverted_index.json')
-#title_tfidf_matrix = load_json_file('title_tfidf_matrix.json')
 title_norms = load_json_file('title_norms.json')
+
+# Ein's changes
+documents = load_json_file('final_data2.json')
+inverted_index = load_json_file('transcript_inverted_index1.json')
+tfidf_matrix = load_json_file('transcript_tfidf_matrix1.json')
+norms = load_json_file('transcript_norms1.json')
 
 
 
@@ -27,10 +30,14 @@ title_norms = load_json_file('title_norms.json')
 def search():
     query = request.args.get('search')
     if not query:
-        data = []
-        src = []
-        url = []
-        output_message = 'No results'
+        # data = []
+        # src = []
+        # url = []
+        # output_message = 'No results'
+        output_message = "Let's C U Smile!"
+        data = get_random(documents)
+        return render_template('search.html', name=project_name, netid=net_id, 
+        output_message=output_message, data=data)
     else:
         transcript_results = search_tfdf_method(query, transcript_inverted_index, transcript_norms, transcript_idf_values, tokenize)
         title_results = search_tfdf_method(query, title_inverted_index, title_norms, title_idf_values, tokenize)
@@ -42,3 +49,9 @@ def search():
             data = [{'title':'No Results Found', 'url':''}]
     return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data)
 
+@irsystem.route('/random', methods=['GET'])
+def random():
+    output_message = "Let's C U Smile!"
+    data = get_random(documents)
+    return render_template('search.html', name=project_name, netid=net_id, 
+    output_message=output_message, data=data)

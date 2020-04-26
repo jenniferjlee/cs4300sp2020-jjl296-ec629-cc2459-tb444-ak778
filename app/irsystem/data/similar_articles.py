@@ -9,7 +9,6 @@ import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 from numpy import linalg as LA
 
-<<<<<<< HEAD
 # import nltk
 # import ssl
 
@@ -21,11 +20,7 @@ from numpy import linalg as LA
 #     ssl._create_default_https_context = _create_unverified_https_context
 
 # nltk.download()
-
-data_file_name = "total_data.json"
-=======
 data_file_name = "final_data.json"
->>>>>>> fa04a1647f3bd4a9f37e53b1ae771589ea54cdc6
 
 def load_json_file(name):
     current_directory = os.path.dirname(os.path.realpath(__file__))

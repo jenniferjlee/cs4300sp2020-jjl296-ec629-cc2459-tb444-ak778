@@ -14,7 +14,8 @@ are created here and saved as json files.
 
 
 """
-data_file_name = "final_data_url.json"
+# data_file_name = "final_data_url.json"
+data_file_name = "final_data2.json"
 
 def load_json_file(name):
     current_directory = os.path.dirname(os.path.realpath(__file__))
@@ -215,7 +216,7 @@ def compute_doc_norms(input_tfidf_matrix):
     return norms
 
 
-def run(feature, input_data, min_df):
+def run(feature, input_data, min_df=0):
     # Create doc term matrix
     doc_term_matrix = create_doc_term_matrix(input_data, feature + '_toks')
     # Create inverted index
@@ -228,10 +229,17 @@ def run(feature, input_data, min_df):
     # Compute doc norms
     norms = compute_doc_norms(tfidf_matrix)
     # Save data structures
+    
+    #Camilo's Changes
     save_json_file(feature + '_idf_values.json', idf_values)
     save_json_file(feature + '_inverted_index.json', inverted_index)
     save_json_file(feature + '_tfidf_matrix.json', tfidf_matrix)
     save_json_file(feature + '_norms.json', norms)
+    
+    #Ein's changes
+    save_json_file(feature + '_inverted_index1.json', inverted_index)
+    save_json_file(feature + '_tfidf_matrix1.json', tfidf_matrix)
+    save_json_file(feature + '_norms1.json', norms)
 
 
 
@@ -240,14 +248,6 @@ def main():
     # Load in data
     data = load_json_file(data_file_name)
     # Quick description of dataset
-
-    #before pre-processing transcipts stats:
-    # there are some article repeats so need to process them
-    # total_data.json: 1062 articles (from guardian, newser, goodnewsnetwork)
-    # total_reddit_data1.json: 2742 articles (2013-2018)
-    # total_reddit_data2.json: 730 articles (2019-2020)
-    # 3472 articles from reddit + 1062 = 4534 total articles
-
     num_articles = len(data)
     print(str(num_articles) + ' articles loaded')
     print('Each article has the following features:')

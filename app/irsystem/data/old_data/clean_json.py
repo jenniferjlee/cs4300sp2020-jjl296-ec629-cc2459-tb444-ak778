@@ -37,25 +37,41 @@ def load_json_file(name):
 # print('post-processing: ' + str(num_articles2) + ' articles loaded')
 
 
-#combine all data sets to one final one
-# total_articles = []
-
-# data1 = load_json_file('cleaned_total_data.json')
-# data2 = load_json_file('cleaned_reddit1.json')
-# data3 = load_json_file('cleaned_reddit2.json')
-
-# for post in data1:
-#     total_articles.append(post)
-
-# for post in data2:
-#     total_articles.append(post)
-
-# for post in data3:
-#     total_articles.append(post)
-
 # with open('final_data.json', 'w') as json_file:
 #     json.dump(total_articles, json_file)
 
-finaldata = load_json_file('final_data.json')
-num_articles = len(finaldata)
-print(num_articles)
+def main():
+    # finaldata = load_json_file('final_data.json')
+    # num_articles = len(finaldata)
+    # print(num_articles)
+
+    # #combine all data sets to one final one
+    # total_articles = []
+
+    # extraData1 = load_json_file('moreReddit.json')
+
+    # for post in finaldata:
+    #     total_articles.append(post)
+    # for post in extraData1:
+    #     total_articles.append(post)
+  
+    
+    # with open('cleanthis.json', 'w') as json_file:
+    #     json.dump(total_articles, json_file)
+
+    #remove dups
+    articles = []
+    seen = []
+    data = load_json_file('cleanthis.json')
+    for post in data:
+        if post['title'] not in seen:
+            articles.append(post)
+            seen.append(post['title'])
+
+        with open('lang.json', 'w') as json_file:
+            json.dump(articles, json_file)
+
+
+if __name__ == "__main__":
+    main()
+
