@@ -138,7 +138,6 @@ def create_idf(input_inverted_index):
     idf = {}
     for key,val in input_inverted_index.items():
         idf[key] = 1/math.log(1+len(val))
-        #idf[key] = 1/(1+len(val))
     return idf
 
 def create_tfidf_matrix(input_doc_term_matrix, input_idf):
@@ -216,12 +215,12 @@ def compute_doc_norms(input_tfidf_matrix):
     return norms
 
 
-def run(feature, input_data):
+def run(feature, input_data, min_df):
     # Create doc term matrix
     doc_term_matrix = create_doc_term_matrix(input_data, feature + '_toks')
     # Create inverted index
     inverted_index = create_inverted_index(doc_term_matrix)
-    inverted_index = remove_non_frequent_types(inverted_index, 3)
+    inverted_index = remove_non_frequent_types(inverted_index, min_df)
     # Compute idf values
     idf_values = create_idf(inverted_index)
     # Create tfidf matrix
@@ -229,6 +228,7 @@ def run(feature, input_data):
     # Compute doc norms
     norms = compute_doc_norms(tfidf_matrix)
     # Save data structures
+    save_json_file(feature + '_idf_values.json', idf_values)
     save_json_file(feature + '_inverted_index.json', inverted_index)
     save_json_file(feature + '_tfidf_matrix.json', tfidf_matrix)
     save_json_file(feature + '_norms.json', norms)
@@ -256,8 +256,12 @@ def main():
     data = tokenize_articles(data, 'transcript', tokenize)
     data = tokenize_articles(data, 'title', tokenize)
     # Create and save relevant data structures
-    run('transcript', data)
-    print('Successfully Created and Saved Files')
+    print('Starting processing of transcripts')
+    run('transcript', data, 3)
+    print('Finshed processing of transcripts')
+    print('Starting processing of titles')
+    run('title', data, 0)
+    print('Finshed processing of titles')
 
 
 
