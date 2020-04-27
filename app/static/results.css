@@ -11,7 +11,7 @@ a:active {
 }
 
 a:link {
-    color: #86BBD8
+    color: #272343;
 }
 
 a:visited {
@@ -38,6 +38,8 @@ a:active {
     border: none;
     cursor: pointer;
     pointer-events: none;
+    font-family: "DM Sans";
+    border-radius: 4px;
 }
 
 .dropdown:hover .dropbtn {
@@ -141,11 +143,11 @@ h2 {
   }
   
   input:checked + .slider {
-    background-color: #86BBD8;
+    background-color: #ccc;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #86BBD8;
+    box-shadow: 0 0 1px  #ccc;
   }
   
   input:checked + .slider:before {
@@ -163,7 +165,10 @@ h2 {
     border-radius: 50%;
   }
 
+<<<<<<< HEAD
 body {
     height: 80%;
     width: 80%;
 }
+=======
+>>>>>>> bdc1033aa95f1021c3721796a607ab181f9b58d2
