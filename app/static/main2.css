@@ -158,3 +158,12 @@ footer {
     height: 34px;
   }
 
+.sorting{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.sorts{
+    width: 50%;
+}

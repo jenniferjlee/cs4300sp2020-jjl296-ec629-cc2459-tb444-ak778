@@ -43,12 +43,15 @@ def search():
         output_message = "Your search: " + query
         data = top_results
 
+        #Change to sort by: relevancy and popularity once this works
+
         # sorting top results
         # FUTURE TODO: use top results + most recent etc
         isRecent = request.args.get('r_sort')
         isPopular = request.args.get('p_sort')
 
         if (isRecent=="new"):
+            print('new')
             data = sort_by_recency(transcript_results, 10, documents, True)
 
         if (isRecent=="old"):
@@ -56,11 +59,11 @@ def search():
         
         # hard to test yet, need to show comments & upvotes
         # I don't think this is working or very small changes, I don't see a diff in results?
-        if (isPopular=="high"):
-            data = sort_by_popularity(transcript_results, 10, documents, True)
+        # if (isPopular=="high"):
+        #     data = sort_by_popularity(transcript_results, 10, documents, True)
         
-        if (isPopular=="low"):
-            data = sort_by_popularity(transcript_results, 10, documents, False)
+        # if (isPopular=="low"):
+        #     data = sort_by_popularity(transcript_results, 10, documents, False)
 
 
         if (len(data)==0):
