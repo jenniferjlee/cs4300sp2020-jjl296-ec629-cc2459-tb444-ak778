@@ -42,6 +42,10 @@ def search():
         top_results = get_top_k(combined_results, 10, documents)
         output_message = "Your search: " + query
         data = top_results
+        isRecent = request.args.get('r_hello')
+        isPopular = request.args.get('p_hello')
+        if (isRecent=="new"):
+            data = [{'title':'hi_testingnnngng', 'url':''}]
 
         # Add recency and popularity here & pass it in
         # most_recent= sort_by_recency(transcript_results, 10, documents, True)

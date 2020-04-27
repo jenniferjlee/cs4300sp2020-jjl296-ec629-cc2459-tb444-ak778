@@ -59,7 +59,7 @@ def get_top_k(results, k, input_data):
         output.append(doc_info)
     return output
 
-def sort_by_recency(results, input_data):
+def sort_by_recency(results):
     results.sort(key = lambda x: x['date'], reverse = True)
     return results
 
