@@ -59,27 +59,36 @@ def get_top_k(results, k, input_data):
         output.append(doc_info)
     return output
 
-def sort_by_recency(results):
-    results.sort(key = lambda x: x['date'], reverse = True)
-    return results
-
-# doesn't work
-# def sort_by_recency(results, k, input_data, isRecent):
+# def sort_by_recency(results):
 #     results.sort(key = lambda x: x['date'], reverse = True)
-#     output = []
-#     for i in range(min(k, len(results))):
-#         doc_id = results[i][1]
-#         doc_info = {'title' : input_data[doc_id].get('title'), 'url': input_data[doc_id].get('url'),
-#                     'date':input_data[doc_id].get('date'), 'score':input_data[doc_id].get('score'),
-#                     'source':input_data[doc_id].get('source'), 'summary':input_data[doc_id].get('summary')}
-#         output.append(doc_info)
-#     return output
+#     return results
+
+def sort_by_recency(results, k, input_data, isRecent):
+    output = []
+    for i in range(min(k, len(results))):
+        doc_id = results[i][1]
+        doc_info = {'title' : input_data[doc_id].get('title'), 'url': input_data[doc_id].get('url'),
+                    'date':input_data[doc_id].get('date'), 'score':input_data[doc_id].get('score'),
+                    'source':input_data[doc_id].get('source'), 'summary':input_data[doc_id].get('summary')}
+        output.append(doc_info)
+    output.sort(key = lambda x: x['date'], reverse = isRecent)
+    return output
 
 
-def sort_by_popularity(results, input_data):
-    results.sort(key = lambda x: x['score'], reverse = True)
-    return results
+# def sort_by_popularity(results, input_data):
+#     results.sort(key = lambda x: x['score'], reverse = True)
+#     return results
 
+def sort_by_popularity(results, k, input_data, isPopular):
+    output = []
+    for i in range(min(k, len(results))):
+        doc_id = results[i][1]
+        doc_info = {'title' : input_data[doc_id].get('title'), 'url': input_data[doc_id].get('url'),
+                    'date':input_data[doc_id].get('date'), 'score':input_data[doc_id].get('score'),
+                    'source':input_data[doc_id].get('source'), 'summary':input_data[doc_id].get('summary')}
+        output.append(doc_info)
+    output.sort(key = lambda x: x['score'], reverse = isPopular)
+    return output
 
 def get_combined_results(output_A, output_B, weight_A, weight_B):
     i = 0

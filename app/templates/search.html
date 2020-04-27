@@ -37,52 +37,23 @@
             <button style="font-family:DM Sans; background-color:#86BBD8" type="submit" class="btn btn-info"
                 id="submitButton" , name="random" , value="Give me Anything!"> Give me Anything!
             </button>
-
-            <!-- <p id="tester"> test</p> -->
-
-            <div class="dropdown">
-                <button  class="btn btn-info">Advanced Setting</button>
-                    <div class="dropdown-content">
-                        <p>Recency (Coming soon)</p>
-                        <select id="recency" onchange="changeRecency()" name="r_hello">
-                            <option value="new">Newer</option>
-                            <option value="old">Older</option>
-                          </select>
-                          <p>Popularity (Coming soon)</p>
-                          <select id="popularity", name = "p_hello">
-                              <option value="high">More</option>
-                              <option value="low">Less</option>
-                            </select>
-                        <!-- <p>Coming soon</p>
-                        <label class="switch">
-                            <input type="checkbox"> 
-                            <div class="slider round"></div>
-                        </label>
-                        <p>Coming soon</p>           
-                        <label class="switch">
-                            <input type="checkbox">
-                            <div class="slider round"></div>
-                        </label> -->
-                    </div>
-            </div>
         </div>
     </form>
 
-    <!-- idk what to do from here -->
-    <script>
-        function changeRecency() {
-          var x = document.getElementById("recency").value;
-        //   document.getElementById("tester").innerHTML = "You selected: " + x;
-          if (x === "old"){
-            //   want to show results sorted by old
-            
-          }else{
-            //   want to show results sorted by new
-          }
-
-        }
-    </script>
-
+    <div class="dropdown">
+        <p>Recency (optional)</p>
+        <select id="recency" onchange="changeRecency()" name="r_sort">
+            <option value="">Select</option>
+            <option value="new">Newer</option>
+            <option value="old">Older</option>
+            </select>
+            <p>Popularity (coming soon)</p>
+            <select id="popularity", name = "p_sort">
+                <option value="">Select</option>
+                <option value="high">More</option>
+                <option value="low">Less</option>
+            </select>
+    </div>
     
     <form class="form-inline global-search middle-body">
         {% if data %}

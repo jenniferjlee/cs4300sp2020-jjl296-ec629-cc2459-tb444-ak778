@@ -42,14 +42,26 @@ def search():
         top_results = get_top_k(combined_results, 10, documents)
         output_message = "Your search: " + query
         data = top_results
-        isRecent = request.args.get('r_hello')
-        isPopular = request.args.get('p_hello')
-        if (isRecent=="new"):
-            data = [{'title':'hi_testingnnngng', 'url':''}]
 
-        # Add recency and popularity here & pass it in
-        # most_recent= sort_by_recency(transcript_results, 10, documents, True)
-        # least_recent= sort_by_recency(transcript_results, 10, documents, False)
+        # sorting top results
+        # FUTURE TODO: use top results + most recent etc
+        isRecent = request.args.get('r_sort')
+        isPopular = request.args.get('p_sort')
+
+        if (isRecent=="new"):
+            data = sort_by_recency(transcript_results, 10, documents, True)
+
+        if (isRecent=="old"):
+            data = sort_by_recency(transcript_results, 10, documents, False)
+        
+        # hard to test yet, need to show comments & upvotes
+        # I don't think this is working or very small changes, I don't see a diff in results?
+        if (isPopular=="high"):
+            data = sort_by_popularity(transcript_results, 10, documents, True)
+        
+        if (isPopular=="low"):
+            data = sort_by_popularity(transcript_results, 10, documents, False)
+
 
         if (len(data)==0):
             data = [{'title':'No Results Found', 'url':''}]
