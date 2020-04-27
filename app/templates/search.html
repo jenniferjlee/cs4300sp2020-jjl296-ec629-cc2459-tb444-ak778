@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="/static/bootstrap.min.css">
     <link rel="stylesheet" href="/static/main2.css">
-    <link rel="stylesheet" href="/static/results.css">
+    <link rel="stylesheet" href="/static/results1.css">
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
@@ -34,42 +34,42 @@
                 id="submitButton"> Search
             </button>
             <button style="font-family:DM Sans; background-color:#86BBD8" type="submit" class="btn btn-info"
-                id="submitButton", name="random", value="Give me Anything!"> Give me Anything!
+                id="submitButton" , name="random" , value="Give me Anything!"> Give me Anything!
             </button>
         </div>
 
         <label class="switch">
             <input type="checkbox">
             <span class="slider round"></span>
-          </label>
-          
-          <label class="switch">
+        </label>
+
+        <label class="switch">
             <input type="checkbox">
             <span class="slider round"></span>
-          </label>>
+        </label>>
     </form>
-    <form class="form-inline global-search">
+    <form class="form-inline global-search middle-body">
         {% if data %}
         <h1>{{output_message}}</h1>
         {% for d in data %}
         <br>
-        <h2><a href={{d["url"]}}>{{d["title"]}} 
-        </a></h2>
-        <div class ="dropdown">
+        <h2><a href={{d["url"]}}>{{d["title"]}}
+            </a></h2>
+        <div class="dropdown">
             <button class="dropBtn">More Info</button>
-                <div class = "dropdown-content">
-                    Coming Soon!
-                </div>
-        </div> 
+            <div class="dropdown-content">
+                Coming Soon!
+            </div>
+        </div>
         <div id="parent">
             <div id="child">
-                Date: {{d["date"]}}
+                <strong>Date: </strong> {{d["date"]}}
             </div>
             <div id="child">
-                Source: {{d["source"]}}
+                <strong>Source: </strong> {{d["source"]}}
             </div>
             <div id="child">
-                Summary: {{d["summary"]}}
+                <strong>Summary: </strong> {{d["summary"]}}
             </div>
         </div>
         {% endfor %}
@@ -85,35 +85,35 @@
             </p>
         </div>
         <div class="circle circle2">
-                <p>
-                    circle 2
-                </p>
+            <p>
+                circle 2
+            </p>
         </div>
         <div class="circle circle3">
-               <p>
-                    circle 3
-                </p>
+            <p>
+                circle 3
+            </p>
         </div>
         <div class="circle circle4">
             <p>
-                 circle 3
-             </p>
-     </div>
-     <div class="circle circle5">
-        <p>
-             circle 3
-         </p>
- </div>
- <div class="circle circle6">
-    <p>
-         circle 3
-     </p>
-</div>
-<div class="circle circle7">
-    <p>
-         circle 3
-     </p>
-</div>
+                circle 3
+            </p>
+        </div>
+        <div class="circle circle5">
+            <p>
+                circle 3
+            </p>
+        </div>
+        <div class="circle circle6">
+            <p>
+                circle 3
+            </p>
+        </div>
+        <div class="circle circle7">
+            <p>
+                circle 3
+            </p>
+        </div>
     </form>
 
     <footer style="font-family:DM Sans">
