@@ -30,24 +30,29 @@ norms = load_json_file('transcript_norms1.json')"""
 def search():
     query = request.args.get('search')
     if not query:
-        # data = []
-        # src = []
-        # url = []
-        # output_message = 'No results'
-        output_message = "Let's C U Smile!"
-        data = get_random(documents)
-        return render_template('search.html', name=project_name, netid=net_id, 
-        output_message=output_message, data=data)
+        data = []
+        src = []
+        url = []
+        output_message = 'No results'
+        # idk why spaces don't work
+        place_holder = "try_keywords_like_'dog'"
+
+        # output_message = "Let's C U Smile!"
+        # data = get_random(documents)
+        # return render_template('search.html', name=project_name, netid=net_id, 
+        # output_message=output_message, data=data)
     else:
         transcript_results = search_tfdf_method(query, transcript_inverted_index, transcript_norms, transcript_idf_values, tokenize)
         title_results = search_tfdf_method(query, title_inverted_index, title_norms, title_idf_values, tokenize)
         combined_results = get_combined_results(transcript_results, title_results, 0.4, 0.6)
         top_results = get_top_k(combined_results, 10, documents)
         output_message = "Your search: " + query
+        place_holder = query
         data = top_results
         if (len(data)==0):
             data = [{'title':'No Results Found', 'url':''}]
-    return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data)
+    print(place_holder)
+    return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, placeholder=place_holder)
 
 @irsystem.route('/random', methods=['GET'])
 def random():

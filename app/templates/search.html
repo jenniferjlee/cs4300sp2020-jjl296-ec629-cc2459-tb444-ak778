@@ -16,7 +16,8 @@
         </button>
         <script type="text/javascript">
             document.getElementById("CUSmileLogo").onclick = function () {
-                location.href = "http://localhost:5000";
+                // TODO: update to actual link
+                location.href = "https://cusmiles.herokuapp.com/";
             };
         </script>
     </div>
@@ -28,8 +29,7 @@
         <br><br>
 
         <div class="form-group">
-            <input style="font-family:DM Sans; color: #495057" id="input" type="text" name="search" class="form-control"
-                placeholder='Type any keyword like "dogs"'>
+            <input style="font-family:DM Sans; color: #495057" id="input" type="text" name="search" class="form-control" placeholder= {{ placeholder }}>
             <button style="font-family:DM Sans; background-color:#86BBD8" type="submit" class="btn btn-info"
                 id="submitButton"> Search
             </button>
