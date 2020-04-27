@@ -44,9 +44,9 @@
                 <option value="">Select</option>
                 <option value="new">Newer</option>
                 <option value="old">Older</option>
-                </select>
-                <p>Popularity (coming soon)</p>
-                <!-- <select id="sorts", name = "p_sort">
+            </select>
+            <p>Popularity (coming soon)</p>
+            <!-- <select id="sorts", name = "p_sort">
                     <option value="">Select</option>
                     <option value="high">More</option>
                     <option value="low">Less</option>
@@ -54,19 +54,19 @@
         </div>
     </form>
 
-    
-    
+
+
     <form class="form-inline global-search middle-body">
         {% if data %}
 
         <h1>{{output_message}}</h1>
-
+        <br>
         {% for d in data %}
         <div id="parent">
             <div id="child">
                 <h2><a href={{d["url"]}}>{{d["title"]}}</a></h2>
             </div>
-            
+
             <div class="dropdown">
                 <button class="dropBtn">More Info</button>
                 <div class="dropdown-content">
@@ -74,11 +74,11 @@
                     <strong>Score: </strong> {{d["score"]}}
                 </div>
             </div>
-        
-           
-            <strong>Date: </strong> {{d["date"]}}
-            <strong>Source: </strong> {{d["source"]}}
-        
+
+            <br>
+            <strong>Date: </strong> {{d["date"]}} <br>
+            <strong>Source: </strong> {{d["source"]}} <br>
+
 
             <div id="child">
                 <strong>Summary: </strong> {{d["summary"]}}
