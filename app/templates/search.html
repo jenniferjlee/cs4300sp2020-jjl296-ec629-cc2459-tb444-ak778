@@ -85,10 +85,7 @@
             </div>
         </div>
         {% endfor %}
-        {% endif %}
-    </form>
-
-
+        {% else %}
     <form class="popular-topics">
         <h1 style="font-size: 40px; font-family:DM Sans; color: #272343">
             Search popular topics (coming soon!)
@@ -129,6 +126,12 @@
             </p>
         </div>
     </form>
+
+        {% endif %}
+    </form>
+
+
+
 
     <footer style="font-family:DM Sans">
         Created by: {{ netid }}
