@@ -59,7 +59,7 @@
 }
 
 .btn:hover {
-    background-color: white;
+    /* background-color: white; */
     color: #FFF1A7;
     border: #FFF1A7;
 }
@@ -139,3 +139,17 @@ footer {
     height:200px;
     margin:20px;
 }
+
+  #div-switch {
+    display: inline-block;
+    width: 60px;
+    vertical-align: middle;
+  }
+
+  .switch {
+    /* margin-top: 5px; */
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }

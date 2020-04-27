@@ -38,6 +38,8 @@ a:active {
     border: none;
     cursor: pointer;
     pointer-events: none;
+    font-family: "DM Sans";
+    border-radius: 4px;
 }
 
 .dropdown:hover .dropbtn {
@@ -140,11 +142,11 @@ h2 {
   }
   
   input:checked + .slider {
-    background-color: #86BBD8;
+    background-color: #ccc;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #86BBD8;
+    box-shadow: 0 0 1px  #ccc;
   }
   
   input:checked + .slider:before {
@@ -161,3 +163,4 @@ h2 {
   .slider.round:before {
     border-radius: 50%;
   }
+
