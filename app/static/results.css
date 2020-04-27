@@ -164,9 +164,3 @@ h2 {
   .slider.round:before {
     border-radius: 50%;
   }
-
-body {
-    height: 80%;
-    width: 80%;
-    align-items: center;
-}
