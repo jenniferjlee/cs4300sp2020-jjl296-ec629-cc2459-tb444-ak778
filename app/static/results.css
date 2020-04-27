@@ -63,9 +63,10 @@ a:active {
 }
 
 .circle {
+    display: inline;
     border-radius: 50%;
-    width: 5em;
-    height: 5em;
+    width: 15em;
+    height: 15em;
     shape-outside: circle(50%);
 }
 .circle1 {
