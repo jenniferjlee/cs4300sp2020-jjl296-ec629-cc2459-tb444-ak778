@@ -32,7 +32,7 @@
     .form-group {
         margin-top: 15px;
         padding-top: 15px;
-        padding-bottom: 15px;
+        /* padding-bottom: 15px; */
         font-family: "DM Sans";
         color: #495057;
     }
@@ -41,13 +41,13 @@
         font-family: "DM Sans";
         color: #495057;
         padding-top: 15px;
-        padding-bottom: 15px;
+        /* padding-bottom: 15px; */
     }
     .global-search .form-control {
         width: 500px;
     }
     .global-search * {
-        margin-bottom: 0;
+        /* margin-bottom: 0; */
     }
 }
 
@@ -70,7 +70,7 @@
 
 .global-search * {
     display: inline-block;
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
 }
 
 .middle-body {
@@ -99,7 +99,7 @@
 }
 
 .topmost {
-    padding-top: 200px;
+    padding-top: 150px;
 }
 
 @media(max-width:600px) {
@@ -132,6 +132,9 @@ footer {
 #parent{ 
     background: #C1DEF9;
     padding:10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 15px;
 }
 
 .child {
@@ -139,6 +142,7 @@ footer {
     height:200px;
     margin:20px;
 }
+
 
   #div-switch {
     display: inline-block;
@@ -153,3 +157,4 @@ footer {
     width: 60px;
     height: 34px;
   }
+
