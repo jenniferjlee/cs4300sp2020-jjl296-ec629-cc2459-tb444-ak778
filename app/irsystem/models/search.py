@@ -63,6 +63,19 @@ def sort_by_recency(results, input_data):
     results.sort(key = lambda x: x['date'], reverse = True)
     return results
 
+# doesn't work
+# def sort_by_recency(results, k, input_data, isRecent):
+#     results.sort(key = lambda x: x['date'], reverse = True)
+#     output = []
+#     for i in range(min(k, len(results))):
+#         doc_id = results[i][1]
+#         doc_info = {'title' : input_data[doc_id].get('title'), 'url': input_data[doc_id].get('url'),
+#                     'date':input_data[doc_id].get('date'), 'score':input_data[doc_id].get('score'),
+#                     'source':input_data[doc_id].get('source'), 'summary':input_data[doc_id].get('summary')}
+#         output.append(doc_info)
+#     return output
+
+
 def sort_by_popularity(results, input_data):
     results.sort(key = lambda x: x['score'], reverse = True)
     return results
