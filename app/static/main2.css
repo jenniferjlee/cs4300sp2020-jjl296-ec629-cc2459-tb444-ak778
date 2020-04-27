@@ -96,14 +96,25 @@
     padding-top: 200px;
 }
 
+@media(max-width:600px) {
+    section {
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+}
 
-/* input{    
-    background: url("static/search.png") top left no-repeat;
-    height:30px;
-    padding-left:25px;   
-} */
+article {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    background-color: white;
+    padding: 10px;
+}
 
 footer {
+    background-color: #86BBD8;
+    color: white;
+    padding: 10px;
     position: fixed;
     left: 0;
     bottom: 30;

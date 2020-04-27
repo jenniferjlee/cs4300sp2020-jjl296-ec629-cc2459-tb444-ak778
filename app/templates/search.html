@@ -37,6 +37,16 @@
                 id="submitButton"> Give me Anything!
             </button>
         </div>
+
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+          
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>>
     </form>
     <form class="form-inline global-search">
         {% if data %}
@@ -61,7 +71,7 @@
             <div id="child">
                 Summary: {{d["summary"]}}
             </div>
-            </div>
+        </div>
         {% endfor %}
         {% endif %}
     </form>
@@ -69,20 +79,24 @@
         <h1 style="font-size: 40px; font-family:DM Sans; color: #272343">
             Search popular topics
         </h1>
-        <div class="circle">
+        <div class="circle circle1">
             <p>
                 circle 1
             </p>
         </div>
         <div class="circle">
-            <p>
-                circle 2
-            </p>
+            <div class="circle2">
+                <p>
+                    circle 2
+                </p>
+                </div>
         </div>
         <div class="circle">
-            <p>
-                circle 3
-            </p>
+            <div class="circle3">
+                <p>
+                    circle 3
+                </p>
+            </div>
         </div>
     </form>
 
