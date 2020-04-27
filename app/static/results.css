@@ -60,6 +60,7 @@ a:active {
 .logoBtn {
     cursor: pointer;
     border: none;
+    color: transparent;
 }
 
 .circle {
@@ -161,3 +162,8 @@ h2 {
   .slider.round:before {
     border-radius: 50%;
   }
+
+body {
+    height: 80%;
+    width: 80%;
+}
