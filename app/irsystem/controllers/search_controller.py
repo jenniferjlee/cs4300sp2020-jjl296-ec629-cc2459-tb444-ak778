@@ -29,15 +29,12 @@ norms = load_json_file('transcript_norms1.json')"""
 @irsystem.route('/', methods=['GET'])
 def search():
     query = request.args.get('search')
-    if not query:
-        # data = []
-        # src = []
-        # url = []
-        # output_message = 'No results'
+    random = request.args.get('random')
+    output_message = ''
+    data = []
+    if (not query):
         output_message = "Let's C U Smile!"
-        data = get_random(documents)
-        return render_template('search.html', name=project_name, netid=net_id, 
-        output_message=output_message, data=data)
+        data = []
     else:
         transcript_results = search_tfdf_method(query, transcript_inverted_index, transcript_norms, transcript_idf_values, tokenize)
         title_results = search_tfdf_method(query, title_inverted_index, title_norms, title_idf_values, tokenize)
@@ -47,11 +44,12 @@ def search():
         data = top_results
         if (len(data)==0):
             data = [{'title':'No Results Found', 'url':''}]
+    if (random == "Give me Anything!"):
+        output_message, data = random_helper()
     return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data)
 
-@irsystem.route('/random', methods=['GET'])
-def random():
+
+def random_helper():
     output_message = "Let's C U Smile!"
     data = get_random(documents)
-    return render_template('search.html', name=project_name, netid=net_id, 
-    output_message=output_message, data=data)
+    return output_message, data
