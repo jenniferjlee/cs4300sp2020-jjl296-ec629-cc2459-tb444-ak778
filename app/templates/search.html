@@ -37,12 +37,14 @@
             <button style="font-family:DM Sans; background-color:#86BBD8" type="submit" class="btn btn-info"
                 id="submitButton" , name="random" , value="Give me Anything!"> Give me Anything!
             </button>
-                    <div>
+
+            <!-- <p id="tester"> test</p> -->
+
             <div class="dropdown">
                 <button  class="btn btn-info">Advanced Setting</button>
                     <div class="dropdown-content">
                         <p>Recency (Coming soon)</p>
-                        <select id="recency">
+                        <select id="recency" onchange="changeRecency()">
                             <option value="new">Newer</option>
                             <option value="old">Older</option>
                           </select>
@@ -61,11 +63,25 @@
                             <input type="checkbox">
                             <div class="slider round"></div>
                         </label> -->
-                </div>
+                    </div>
             </div>
         </div>
-        </div>
     </form>
+
+    <!-- idk what to do from here -->
+    <script>
+        function changeRecency() {
+          var x = document.getElementById("recency").value;
+        //   document.getElementById("tester").innerHTML = "You selected: " + x;
+          if (x === "old"){
+            //   want to show results sorted by old
+            
+          }else{
+            //   want to show results sorted by new
+          }
+
+        }
+    </script>
 
     
     <form class="form-inline global-search middle-body">
@@ -98,6 +114,8 @@
         {% endfor %}
         {% endif %}
     </form>
+
+
     <form class="popular-topics">
         <h1 style="font-size: 40px; font-family:DM Sans; color: #272343">
             Search popular topics (coming soon!)
@@ -142,6 +160,7 @@
     <footer style="font-family:DM Sans">
         Created by: {{ netid }}
     </footer>
+
 </body>
 
 </html>
