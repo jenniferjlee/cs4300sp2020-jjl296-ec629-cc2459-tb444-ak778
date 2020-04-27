@@ -16,6 +16,7 @@
         </button>
         <script type="text/javascript">
             document.getElementById("CUSmileLogo").onclick = function () {
+                // change this to heroku link!
                 location.href = "http://localhost:5000";
             };
         </script>
@@ -34,50 +35,90 @@
                 id="submitButton"> Search
             </button>
             <button style="font-family:DM Sans; background-color:#86BBD8" type="submit" class="btn btn-info"
-                id="submitButton", name="random", value="Give me Anything!"> Give me Anything!
+                id="submitButton" , name="random" , value="Give me Anything!"> Give me Anything!
             </button>
-        </div>
 
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-          </label>
-          
-          <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-          </label>>
+            <!-- <p id="tester"> test</p> -->
+
+            <div class="dropdown">
+                <button  class="btn btn-info">Advanced Setting</button>
+                    <div class="dropdown-content">
+                        <p>Recency (Coming soon)</p>
+                        <select id="recency" onchange="changeRecency()">
+                            <option value="new">Newer</option>
+                            <option value="old">Older</option>
+                          </select>
+                          <p>Popularity (Coming soon)</p>
+                          <select id="popularity">
+                              <option value="high">More</option>
+                              <option value="low">Less</option>
+                            </select>
+                        <!-- <p>Coming soon</p>
+                        <label class="switch">
+                            <input type="checkbox"> 
+                            <div class="slider round"></div>
+                        </label>
+                        <p>Coming soon</p>           
+                        <label class="switch">
+                            <input type="checkbox">
+                            <div class="slider round"></div>
+                        </label> -->
+                    </div>
+            </div>
+        </div>
     </form>
-    <form class="form-inline global-search">
+
+    <!-- idk what to do from here -->
+    <script>
+        function changeRecency() {
+          var x = document.getElementById("recency").value;
+        //   document.getElementById("tester").innerHTML = "You selected: " + x;
+          if (x === "old"){
+            //   want to show results sorted by old
+            
+          }else{
+            //   want to show results sorted by new
+          }
+
+        }
+    </script>
+
+    
+    <form class="form-inline global-search middle-body">
         {% if data %}
+
         <h1>{{output_message}}</h1>
+
         {% for d in data %}
-        <br>
-        <h2><a href={{d["url"]}}>{{d["title"]}} 
-        </a></h2>
-        <div class ="dropdown">
-            <button class="dropBtn">More Info</button>
-                <div class = "dropdown-content">
-                    Coming Soon!
-                </div>
-        </div> 
         <div id="parent">
             <div id="child">
-                Date: {{d["date"]}}
+                <h2><a href={{d["url"]}}>{{d["title"]}}</a></h2>
             </div>
-            <div id="child">
-                Source: {{d["source"]}}
+            
+            <div class="dropdown">
+                <button class="dropBtn">More Info</button>
+                <div class="dropdown-content">
+                    Coming Soon!
+                </div>
             </div>
+        
+           
+            <strong>Date: </strong> {{d["date"]}}
+            <strong>Source: </strong> {{d["source"]}}
+        
+
             <div id="child">
-                Summary: {{d["summary"]}}
+                <strong>Summary: </strong> {{d["summary"]}}
             </div>
         </div>
         {% endfor %}
         {% endif %}
     </form>
+
+
     <form class="popular-topics">
         <h1 style="font-size: 40px; font-family:DM Sans; color: #272343">
-            Search popular topics
+            Search popular topics (coming soon!)
         </h1>
         <div class="circle circle1">
             <p>
@@ -85,40 +126,41 @@
             </p>
         </div>
         <div class="circle circle2">
-                <p>
-                    circle 2
-                </p>
+            <p>
+                circle 2
+            </p>
         </div>
         <div class="circle circle3">
-               <p>
-                    circle 3
-                </p>
+            <p>
+                circle 3
+            </p>
         </div>
         <div class="circle circle4">
             <p>
-                 circle 3
-             </p>
-     </div>
-     <div class="circle circle5">
-        <p>
-             circle 3
-         </p>
- </div>
- <div class="circle circle6">
-    <p>
-         circle 3
-     </p>
-</div>
-<div class="circle circle7">
-    <p>
-         circle 3
-     </p>
-</div>
+                circle 3
+            </p>
+        </div>
+        <div class="circle circle5">
+            <p>
+                circle 3
+            </p>
+        </div>
+        <div class="circle circle6">
+            <p>
+                circle 3
+            </p>
+        </div>
+        <div class="circle circle7">
+            <p>
+                circle 3
+            </p>
+        </div>
     </form>
 
     <footer style="font-family:DM Sans">
         Created by: {{ netid }}
     </footer>
+
 </body>
 
 </html>
