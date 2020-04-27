@@ -16,8 +16,7 @@
         </button>
         <script type="text/javascript">
             document.getElementById("CUSmileLogo").onclick = function () {
-                // change this to heroku link!
-                location.href = "http://localhost:5000";
+                location.href = "https://cusmiles-v2.herokuapp.com/";
             };
         </script>
     </div>
@@ -34,10 +33,11 @@
             <button style="font-family:DM Sans; background-color:#86BBD8" type="submit" class="btn btn-info"
                 id="submitButton"> Search
             </button>
-            <button style="font-family:DM Sans; background-color:#86BBD8" type="submit" class="btn btn-info"
+            <button style="font-family:DM Sans; background-color:#F9CF51" type="submit" class="btn btn-info"
                 id="submitButton" , name="random" , value="Give me Anything!"> Give me Anything!
             </button>
         </div>
+        <br><br>
         <div id="sorting">
             <p>Recency (optional)</p>
             <select id="sorts" onchange="changeRecency()" name="r_sort">
@@ -46,11 +46,11 @@
                 <option value="old">Older</option>
                 </select>
                 <p>Popularity (coming soon)</p>
-                <select id="sorts", name = "p_sort">
+                <!-- <select id="sorts", name = "p_sort">
                     <option value="">Select</option>
                     <option value="high">More</option>
                     <option value="low">Less</option>
-                </select>
+                </select> -->
         </div>
     </form>
 
@@ -71,6 +71,7 @@
                 <button class="dropBtn">More Info</button>
                 <div class="dropdown-content">
                     Coming Soon!
+                    <strong>Score: </strong> {{d["score"]}}
                 </div>
             </div>
         

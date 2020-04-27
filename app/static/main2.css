@@ -46,9 +46,6 @@
     .global-search .form-control {
         width: 500px;
     }
-    .global-search * {
-        /* margin-bottom: 0; */
-    }
 }
 
 .topcorner {
