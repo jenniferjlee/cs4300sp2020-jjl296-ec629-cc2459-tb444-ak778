@@ -86,41 +86,39 @@
         </div>
         {% endfor %}
         {% else %}
-    <h1 style="font-size: 40px; font-family:DM Sans; color: #272343">
-        Search popular topics (coming soon!)
-    </h1>
-    <br>
-    <form class="popular-topics">
-        <div class="circle circle1">
-            <!-- <h3> Markets & Healthcare </h3> -->
-            <a href={{topics[0][0]["url"]}}>{{topics[0][2]["title"]}}</a>
+        <h1 style="font-size: 40px; font-family:DM Sans; color: #272343">
+            Search popular topics (coming soon!)
+        </h1>
+        <br>
+        <div class="popular-topics">
+            <div class="circle circle1">
+                <!-- <h3> Markets & Healthcare </h3> -->
+                <a href={{topics[0][0]["url"]}}>{{topics[0][2]["title"]}}</a>
+            </div>
+            <div class="circle circle2">
+                <a href={{topics[0][1]["url"]}}>{{topics[0][1]["title"]}}</a>
+            </div>
+            <div class="circle circle3">
+                <!-- <h3> Community </h3> -->
+                <a href={{topics[1][0]["url"]}}>{{topics[1][0]["title"]}}</a>
+            </div>
+            <div class="circle circle4">
+                <a href={{topics[1][1]["url"]}}>{{topics[1][1]["title"]}}</a>
+            </div>
+            <div class="circle circle8">
+                <a href={{topics[2][0]["url"]}}>{{topics[2][0]["title"]}}</a>
+            </div>
+            <div class="circle circle5">
+                <a href={{topics[2][1]["url"]}}>{{topics[2][1]["title"]}}</a>
+            </div>
+            <div class="circle circle6">
+                <!-- <h3> Environment </h3> -->
+                <a href={{topics[2][2]["url"]}}>{{topics[2][2]["title"]}}</a>
+            </div>
+            <div class="circle circle7">
+                <a href={{topics[1][2]["url"]}}>{{topics[1][2]["title"]}}</a>
+            </div>
         </div>
-        </a>
-        <div class="circle circle2">
-            <a href={{topics[0][1]["url"]}}>{{topics[0][1]["title"]}}</a>
-        </div>
-        <div class="circle circle3">
-            <!-- <h3> Community </h3> -->
-            <a href={{topics[1][0]["url"]}}>{{topics[1][0]["title"]}}</a>
-        </div>
-        <div class="circle circle4">
-            <a href={{topics[1][1]["url"]}}>{{topics[1][1]["title"]}}</a>
-        </div>
-        <div class="circle circle8">
-            <a href={{topics[2][0]["url"]}}>{{topics[2][0]["title"]}}</a>
-        </div>
-        <div class="circle circle5">
-            <a href={{topics[2][1]["url"]}}>{{topics[2][1]["title"]}}</a>
-        </div>
-        <div class="circle circle6">
-            <!-- <h3> Environment </h3> -->
-            <a href={{topics[2][2]["url"]}}>{{topics[2][2]["title"]}}</a>
-        </div>
-        <div class="circle circle7">
-            <a href={{topics[1][2]["url"]}}>{{topics[1][2]["title"]}}</a>
-        </div>
-        <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-    </form>
         {% endif %}
     </form>
 
