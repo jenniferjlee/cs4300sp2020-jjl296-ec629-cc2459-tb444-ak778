@@ -7,7 +7,7 @@ from app.irsystem.data.processor import tokenize
 from app.irsystem.models.search import *
 
 project_name = "CUSmiles"
-net_id = "Jennifer Lee: jjl296, Camilo Cedeno-Tobon: cc2459, Tanmay Bansal: tb444, Alina Kim: ak778, Ein Chang: ec629 "
+net_id = "Jennifer Lee: jjl296, Camilo Cedeno-Tobon: cc2459, Tanmay Bansal: tb444, Alina Kim: ak778, Ein Chang: ec629"
 
 # Camilo's changes
 documents = load_json_file('final_data4.json')
