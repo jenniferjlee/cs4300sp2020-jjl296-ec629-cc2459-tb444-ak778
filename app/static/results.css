@@ -66,32 +66,68 @@ a:active {
 }
 
 .circle {
-    display: inline;
+    /* display: inline; */
     border-radius: 50%;
-    width: 15em;
-    height: 15em;
+    width: 10em;
+    height: 10em;
     shape-outside: circle(50%);
 }
-.circle1 {
+.circle {
     background-color: #EF4565;
+    width: 14em;
+    height: 14em;
+    float: left;
+    margin-right: 15px;
+    margin-top: 20px;
 }
 .circle2 {
     background-color: #F2994A;
+    width: 7em;
+    height: 7em;
+    float: left;
+    /* margin-right: 20px; */
 }
 .circle3 {
     background-color: #F2C94C;
+    float: left;
+    margin-bottom: 30px;
+    margin-top: 90px;
+    margin-right: 10px;
 }
 .circle4 {
     background-color: #6FCF97;
+    width: 9em;
+    height: 9em;
+    margin-right: 30px;
+    float: left
 }
 .circle5 {
     background-color: #56CCF2;
+    width: 8em;
+    height: 8em;
+    margin-right: 30px;
+    float: right;
 }
 .circle6 {
     background-color: #2F80ED;
+    float: right;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 .circle7 {
     background-color: #BB6BD9;
+    width: 17em;
+    height: 17em;
+    float: right;
+    /* margin-left: 70px; */
+}
+.circle8 {
+    background-color: #F784AD;
+    width: 6em;
+    height: 6em;
+    float: right;
+    margin-top: 150px;
+    /* margin-left: 70px; */
 }
 
 h2 {
@@ -165,10 +201,3 @@ h2 {
     border-radius: 50%;
   }
 
-<<<<<<< HEAD
-body {
-    height: 80%;
-    width: 80%;
-}
-=======
->>>>>>> bdc1033aa95f1021c3721796a607ab181f9b58d2
