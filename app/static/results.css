@@ -10,12 +10,12 @@ a:active {
     display: inline-block;
 }
 
-a:link {
+.middle-body a:link {
     color: #272343;
 }
 
-a:visited {
-    color: #F784AD
+.middle-body a:visited {
+    color: #272343;
 }
 
 a:hover {
