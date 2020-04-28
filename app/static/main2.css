@@ -1,6 +1,7 @@
 @media (min-width: 1200px) {
     .container {
         max-width: 970px;
+        align-items: center;
     }
 }
 
@@ -8,6 +9,7 @@
     .global-search {
         padding: 20px 0;
         text-align: center;
+        align-items: center;
     }
     body,
     p,
@@ -74,6 +76,7 @@
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
+    margin-bottom: 50px;
 }
 
 .topcorner {
