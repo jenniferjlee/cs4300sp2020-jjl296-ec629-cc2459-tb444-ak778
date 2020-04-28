@@ -60,6 +60,7 @@ a:active {
 }
 
 .logoBtn {
+    background:url(/static/logo.png) no-repeat;
     cursor: pointer;
     border: none;
     color: transparent;
@@ -67,45 +68,54 @@ a:active {
 
 .circle {
     /* display: inline; */
-    border-radius: 50%;
-    width: 10em;
-    height: 10em;
-    shape-outside: circle(50%);
-}
-.circle {
-    background-color: #EF4565;
+    justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  text-align: center;
+  display: flex;
     width: 14em;
     height: 14em;
+    shape-outside: circle(50%);
+    color: white
+}
+
+.circle1 {
+    background-color: #EF4565;
+    width: 13em;
+    height: 13em;
     float: left;
     margin-right: 15px;
-    margin-top: 20px;
+    margin-top: 150px;
 }
 .circle2 {
     background-color: #F2994A;
-    width: 7em;
-    height: 7em;
+    width: 12em;
+    height: 12em;
     float: left;
     /* margin-right: 20px; */
 }
 .circle3 {
     background-color: #F2C94C;
     float: left;
+    width: 17em;
+    height: 17em;
     margin-bottom: 30px;
-    margin-top: 90px;
+    margin-top: 100px;
     margin-right: 10px;
 }
 .circle4 {
     background-color: #6FCF97;
-    width: 9em;
-    height: 9em;
+    width: 12em;
+    height: 12em;
     margin-right: 30px;
     float: left
 }
 .circle5 {
     background-color: #56CCF2;
-    width: 8em;
-    height: 8em;
+    width: 11em;
+    height: 11em;
     margin-right: 30px;
+    margin-top: 20px;
     float: right;
 }
 .circle6 {
@@ -116,17 +126,17 @@ a:active {
 }
 .circle7 {
     background-color: #BB6BD9;
-    width: 17em;
-    height: 17em;
+    width: 13em;
+    height: 13em;
     float: right;
-    /* margin-left: 70px; */
+    margin-right: 20px;
 }
 .circle8 {
     background-color: #F784AD;
-    width: 6em;
-    height: 6em;
+    width: 12em;
+    height: 12em;
     float: right;
-    margin-top: 150px;
+    margin-top: 40px;
     /* margin-left: 70px; */
 }
 
@@ -200,3 +210,41 @@ h2 {
   .slider.round:before {
     border-radius: 50%;
   }
+
+  h3 {
+    color: white;
+    font: DM-Sans;
+    font-size: 15px;
+    position: absolute;
+    align-items: center;
+  }
+/* 
+  @supports (shape-outside: circle(50%)) {
+    .circle-content {
+      height: 100%;
+      margin: 0;
+    }
+    
+    .circle::before,
+    .circle-content::before {
+      content: "";
+      height: 100%;
+      width: 50%;
+    }
+    
+    .circle::before {
+      float: left;
+      shape-outside: polygon(
+        0 0, 100% 0, 60% 4%, 40% 10%, 20% 20%, 10% 28.2%, 5% 34.4%, 0 50%,
+        5% 65.6%, 10% 71.8%, 20% 80%, 40% 90%, 60% 96%, 100% 100%, 0 100%
+      );
+    }
+    
+    .circle-content::before {
+      float: right;
+      shape-outside: polygon(
+        100% 0, 0 0, 40% 4%, 60% 10%, 80% 20%, 90% 28.2%, 95% 34.4%, 100% 50%,
+        95% 65.6%, 90% 71.8%, 80% 80%, 60% 90%, 40% 96%, 0 100%, 100% 100%
+      );
+    }
+  } */

@@ -24,6 +24,7 @@ inverted_index = load_json_file('transcript_inverted_index1.json')
 tfidf_matrix = load_json_file('transcript_tfidf_matrix1.json')
 norms = load_json_file('transcript_norms1.json')"""
 
+classifiedDocs = load_json_file('final_data_classified.json')
 
 
 @irsystem.route('/', methods=['GET'])
@@ -33,9 +34,32 @@ def search():
     
     output_message = ''
     data = []
+    topics = []
     if (not query):
         output_message = "Let's C U Smile!"
-        data = []
+        topic0 = []
+        topic1 = []
+        topic2 = []
+        for doc in classifiedDocs:
+            topic_num = doc.get('topic')
+            if topic_num == 1:
+                topic1.append((doc.get('topic_strength'), doc))
+            elif topic_num == 0:
+                topic0.append((doc.get('topic_strength'), doc))
+            else:
+                topic2.append((doc.get('topic_strength'), doc))
+        topic0.sort(key=lambda x:x[0])
+        topic0.reverse()
+        topic1.sort(key=lambda x:x[0])
+        topic1.reverse()
+        topic2.sort(key=lambda x:x[0])
+        topic2.reverse()
+        topics = [[],[],[]]
+        for i in range(10):
+            topics[0].append(topic0[i][1])
+            topics[1].append(topic1[i][1])
+            topics[2].append(topic2[i][1])
+                
     else:
         transcript_results = search_tfdf_method(query, transcript_inverted_index, transcript_norms, transcript_idf_values, tokenize)
         title_results = search_tfdf_method(query, title_inverted_index, title_norms, title_idf_values, tokenize)
@@ -71,7 +95,7 @@ def search():
             data = [{'title':'No Results Found', 'url':''}]
     if (random == "Give me Anything!"):
         output_message, data = random_helper()
-    return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data)
+    return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, topics=topics)
 
 
 def random_helper():
