@@ -50,18 +50,12 @@
         </div>
         <br><br>
         <div id="sorting">
-            <p>Recency (optional)</p>
+            Recency
             <select id="sorts" onchange="changeRecency()" name="r_sort">
                 <option value="">Select</option>
                 <option value="new">Newer</option>
                 <option value="old">Older</option>
             </select>
-            <p>Popularity (coming soon)</p>
-            <!-- <select id="sorts", name = "p_sort">
-                    <option value="">Select</option>
-                    <option value="high">More</option>
-                    <option value="low">Less</option>
-                </select> -->
         </div>
     </form>
 
@@ -81,7 +75,8 @@
             {% if d["title"] !='No Results Found' %}
 
             
-            <button class="dropBtn" name="similar">See Similar Articles</button>
+            <button type="submit" name="similar" id="submitButton"
+            class="btn btn-info" value= {{ d['title'] }} >See Similar Articles</button>
 
             <br>
             <strong>Date: </strong> {{d["date"]}} &emsp;

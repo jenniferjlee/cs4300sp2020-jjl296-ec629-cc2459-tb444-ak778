@@ -31,6 +31,11 @@ classifiedDocs = load_json_file('final_data_classified.json')
 def search():
     query = request.args.get('search')
     random = request.args.get('random')
+    similar = request.args.get('similar')
+
+    print('similar:')
+    print(similar)
+
     
     output_message = ''
     data = []
@@ -81,14 +86,6 @@ def search():
 
         if (isRecent=="old"):
             data = sort_by_recency(transcript_results, 25, documents, False)
-        
-        # hard to test yet, need to show comments & upvotes
-        # I don't think this is working or very small changes, I don't see a diff in results?
-        # if (isPopular=="high"):
-        #     data = sort_by_popularity(transcript_results, 10, documents, True)
-        
-        # if (isPopular=="low"):
-        #     data = sort_by_popularity(transcript_results, 10, documents, False)
 
 
         if (len(data)==0):
@@ -103,3 +100,5 @@ def random_helper():
     output_message = "Let's C U Smile!"
     data = get_random(documents)
     return output_message, data
+
+# def similar_article_helper():
