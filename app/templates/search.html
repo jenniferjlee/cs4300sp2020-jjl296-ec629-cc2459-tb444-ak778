@@ -9,6 +9,16 @@
         rel="stylesheet">
 </head>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0/dist/confetti.browser.min.js"></script>
+
+<script>    
+    function showConfetti() {
+        var myCanvas = document.createElement('canvas');
+        document.appendChild(myCanvas);
+        confetti();
+    }
+    </script>
+
 <body>
     <div class="topcorner">
         <button id="CUSmileLogo" class=logoBtn>
@@ -21,7 +31,8 @@
         </script>
     </div>
     <form class="form-inline global-search topmost">
-        <h1 style="font-size: 40px; font-family:DM Sans; color: #272343">
+        <h1 style="font-size: 40px; font-family:DM Sans; color: #272343"
+        onclick="showConfetti()" id="confetti">
             Search for uplifting news about any topic
         </h1>
 
@@ -67,11 +78,10 @@
             <div id="child">
                 <h2><a href={{d["url"]}}>{{d["title"]}}</a></h2>
             </div>
-            {% if d["title"] != 'No Results Found' %}
+            {% if d["title"] !='No Results Found' %}
 
-            <div class="dropdown"></div>
-                <button class="dropBtn" name="similar">See Similar Articles</button>
-            </div>
+            
+            <button class="dropBtn" name="similar">See Similar Articles</button>
 
             <br>
             <strong>Date: </strong> {{d["date"]}} &emsp;
