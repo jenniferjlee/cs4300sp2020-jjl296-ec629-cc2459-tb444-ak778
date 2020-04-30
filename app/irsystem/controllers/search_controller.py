@@ -64,7 +64,7 @@ def search():
         transcript_results = search_tfdf_method(query, transcript_inverted_index, transcript_norms, transcript_idf_values, tokenize)
         title_results = search_tfdf_method(query, title_inverted_index, title_norms, title_idf_values, tokenize)
         combined_results = get_combined_results(transcript_results, title_results, 0.4, 0.6)
-        top_results = get_top_k(combined_results, 10, documents)
+        top_results = get_top_k(combined_results, 25, documents)
         output_message = "Your search: " + query
         data = top_results
 
@@ -77,10 +77,10 @@ def search():
 
         if (isRecent=="new"):
             print('new')
-            data = sort_by_recency(transcript_results, 10, documents, True)
+            data = sort_by_recency(transcript_results, 25, documents, True)
 
         if (isRecent=="old"):
-            data = sort_by_recency(transcript_results, 10, documents, False)
+            data = sort_by_recency(transcript_results, 25, documents, False)
         
         # hard to test yet, need to show comments & upvotes
         # I don't think this is working or very small changes, I don't see a diff in results?
@@ -92,7 +92,8 @@ def search():
 
 
         if (len(data)==0):
-            data = [{'title':'No Results Found', 'url':''}]
+            # change url to final link!
+            data = [{'title':'No Results Found', 'url':'https://cusmiles-v2.herokuapp.com/'}]
     if (random == "Give me Anything!"):
         output_message, data = random_helper()
     return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, topics=topics)
