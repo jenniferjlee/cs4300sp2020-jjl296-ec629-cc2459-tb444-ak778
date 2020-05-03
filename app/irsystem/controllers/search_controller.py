@@ -110,11 +110,11 @@ def random_helper():
 
 def topic_helper(topic):
     output_message = "Uplifting News on " + topic
-    # if topic == "Community":
+    # if topic == "Money":
     #     greendocs = []
     #     for doc in classifiedDocs:
     #         topic_num = doc.get('topic')
-    #         if topic_num == 1:
+    #         if topic_num == 0:
     #             greendocs.append((doc.get('topic_strength'), doc))
     #     greendocs.sort(key=lambda x:x[0])
     #     greendocs.reverse()
