@@ -143,11 +143,11 @@ def get_ranked_articles(article, matrix):
     
     return article_score_lst
 
-similars = []
+similars = dict()
 for post in data:
     title = post['title']
     similar = get_ranked_articles(title, articles_sims_cos)[:5]
-    similars.append({'title': title, 'similars': similar})
+    similars[title] = similar
 
 with open('similars.json', 'w') as json_file:
     json.dump(similars, json_file) 

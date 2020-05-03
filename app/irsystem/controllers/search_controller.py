@@ -28,6 +28,8 @@ classifiedDocs = load_json_file('final_data_classified.json')
 
 topicDocs = load_json_file('topics.json')
 
+similarDocs = load_json_file('similars_final.json')
+
 
 @irsystem.route('/', methods=['GET'])
 def search():
@@ -35,9 +37,6 @@ def search():
     random = request.args.get('random')
     similar = request.args.get('similar')
     topic = request.args.get('topic')
-
-    print('similar:')
-    print(similar)
 
     
     output_message = ''
@@ -76,6 +75,8 @@ def search():
         output_message = "Your search: " + query
         data = top_results
 
+        #update data to have similar {title, links}
+
         #Change to sort by: relevancy and popularity once this works
 
         # sorting top results
@@ -83,8 +84,8 @@ def search():
         isRecent = request.args.get('r_sort')
         isPopular = request.args.get('p_sort')
 
+
         if (isRecent=="new"):
-            print('new')
             data = sort_by_recency(transcript_results, 25, documents, True)
 
         if (isRecent=="old"):
@@ -94,12 +95,17 @@ def search():
         if (len(data)==0):
             # change url to final link!
             data = [{'title':'No Results Found', 'url':'https://cusmiles-v2.herokuapp.com/'}]
+
     if (random == "Give me Anything!"):
         output_message, data = random_helper()
     if topic is not None:
         output_message, data = topic_helper(topic)
+    if similar is not None:
+        output_message = "Articles similar to "
+        data = similarDocs[similar]
     if query is None:
         query = ""
+    
     return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, topics=topics, query=query)
 
 
@@ -128,4 +134,5 @@ def topic_helper(topic):
             data.append(doc)
     return output_message,data 
 
-# def similar_article_helper():
+            
+    

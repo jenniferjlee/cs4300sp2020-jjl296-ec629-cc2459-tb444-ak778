@@ -136,7 +136,7 @@ def main3():
         json.dump(new_data, json_file)
 
 # add summaries to final_data1.json
-def main():
+def main4():
     total = []
     data_file_name = "summaries2.json"
     data_summaries = load_json_file(data_file_name)
@@ -153,6 +153,61 @@ def main():
 
     with open('final_data2.json', 'w') as json_file:
         json.dump(total, json_file)
+        
+# add links to the similar articles
+# dictionary: title: [ [title, score, link] ]
+# change to dictionary: title {title, score, link }
+
+def get_post_off_title(title, data):
+    for post in data:
+        post_title = post['title']
+        # print('post_title is ' + post_title)
+        if post_title == title:
+            # print(post)
+            return post
+
+def main():
+    total = dict()
+    data = load_json_file("final_data4.json")
+    data_file_name = "similars.json"
+    data_summaries = load_json_file(data_file_name)
+
+    for title_key in data_summaries:
+        total_similars = []
+        similars = data_summaries[title_key]
+        for article in similars:
+            title = article[0]
+            sim = article[1]
+            # roudn and make to percentage
+            rounded_sim = str(round(sim * 100, 2)) + '%'
+
+            post = get_post_off_title(title, data)
+            source = post['source']
+            summary = post['summary']
+            score = post['score']
+            date = post['date']
+
+            total_similars.append({'title': title, 'sim': rounded_sim, 'source': source, 'summary': summary,
+            'score': score, 'date': date})
+        total[title_key] = total_similars
+    
+    with open('similars_final.json', 'w') as json_file:
+        json.dump(total, json_file)
+
+
+
+
+    # data_file_name2 = "final_data1.json"
+    # data = load_json_file(data_file_name2)
+    # for i, post in enumerate(data):
+    #     title_name = post['title']
+    #     summary = data_summaries[i]['summary']
+    #     total.append(
+    #         {'title':post['title'], 'url': post['url'],
+    #     'date': post['date'],'transcript': post['transcript'], 'source': post['source'],
+    #     'summary': summary})
+
+
 
 if __name__ == "__main__":
     main()

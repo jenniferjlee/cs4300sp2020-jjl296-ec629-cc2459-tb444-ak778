@@ -53,7 +53,7 @@
 
         </div>
         <br><br>
-        <button style="font-family:DM Sans; background-color:#F9CF51" type="submit" class="btn btn-info"
+        <button style="font-family:DM Sans; color: #272343; background-color:#F9CF51" type="submit" class="btn btn-info"
         id="submitButton" , name="random" , value="Give me Anything!"> Give me Anything!
     </button>
     </form>
@@ -74,10 +74,9 @@
             {% if d["title"] !='No Results Found' %}
 
 
-            <button type="submit" name="similar" id="submitButton" class="btn btn-info" value={{ d['title'] }}>See
+            <button type="submit" name="similar" id="submitButton" class="btn btn-info" value="{{d["title"]}}">See
                 Similar Articles</button>
 
-            <br>
             <strong>Date: </strong> {{d["date"]}} &emsp;
 
 
@@ -86,6 +85,10 @@
             <strong>⬆</strong> {{d["score"]}}
             {% endif %}
             <br>
+
+            {% if 'Articles similar to' in output_message%}
+            <strong>Similarity:</strong> {{d["sim"]}}
+            {% endif %}
 
             <div id="child">
                 <strong>Summary: </strong> {{d["summary"]}}
@@ -148,10 +151,9 @@
         {% endif %}
     </form>
 
-
-
     <footer style="font-family:DM Sans">
         Created by: {{ netid }} <a href="https://cusmiles.herokuapp.com/">Prototype 1</a>
+        <a href="https://cusmiles-v2.herokuapp.com/">Prototype 2</a>
     </footer>
 
 </body>
