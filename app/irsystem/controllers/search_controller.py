@@ -26,6 +26,8 @@ norms = load_json_file('transcript_norms1.json')"""
 
 classifiedDocs = load_json_file('final_data_classified.json')
 
+topicDocs = load_json_file('topics.json')
+
 
 @irsystem.route('/', methods=['GET'])
 def search():
@@ -95,7 +97,7 @@ def search():
     if (random == "Give me Anything!"):
         output_message, data = random_helper()
     if topic is not None:
-        output_message, data = topic_helper()
+        output_message, data = topic_helper(topic)
     if query is None:
         query = ""
     return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, topics=topics, query=query)
@@ -107,8 +109,23 @@ def random_helper():
     return output_message, data
 
 def topic_helper(topic):
-    output_message = "Good News on " + topic
-    #data
+    output_message = "Uplifting News on " + topic
+    # if topic == "Community":
+    #     greendocs = []
+    #     for doc in classifiedDocs:
+    #         topic_num = doc.get('topic')
+    #         if topic_num == 1:
+    #             greendocs.append((doc.get('topic_strength'), doc))
+    #     greendocs.sort(key=lambda x:x[0])
+    #     greendocs.reverse()
+    # data = []
+    # for i in range(10):
+    #     data.append(greendocs[i][1])
+    data = []
+    for doc in topicDocs:
+        category = doc.get('topic')
+        if topic == category:
+            data.append(doc)
     return output_message,data 
 
 # def similar_article_helper():
