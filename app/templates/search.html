@@ -73,7 +73,7 @@
             <div id="child">
                 <h2><a href={{d["url"]}}><div id="myDiv">
                     {% for word in d["title"].split(" ") %}
-                    {% if word in query %}
+                    {% if word in query.split() %}
                     <strong>{{word}}</strong>
                     {% else %}
                     {{word}}
@@ -103,7 +103,7 @@
             <div id="child">
                 <strong>Summary: </strong>
                 {% for word in d["summary"].split(" ") %}
-                {% if word in query %}
+                {% if word in query.split() %}
                 <strong>{{word}}</strong>
                 {% else %}
                 {{word}}
