@@ -32,6 +32,7 @@ def search():
     query = request.args.get('search')
     random = request.args.get('random')
     similar = request.args.get('similar')
+    topic = request.args.get('topic')
 
     print('similar:')
     print(similar)
@@ -93,6 +94,10 @@ def search():
             data = [{'title':'No Results Found', 'url':'https://cusmiles-v2.herokuapp.com/'}]
     if (random == "Give me Anything!"):
         output_message, data = random_helper()
+    if topic is not None:
+        output_message, data = topic_helper()
+    if query is None:
+        query = ""
     return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, topics=topics, query=query)
 
 
@@ -100,5 +105,10 @@ def random_helper():
     output_message = "Let's C U Smile!"
     data = get_random(documents)
     return output_message, data
+
+def topic_helper(topic):
+    output_message = "Good News on " + topic
+    #data
+    return output_message,data 
 
 # def similar_article_helper():

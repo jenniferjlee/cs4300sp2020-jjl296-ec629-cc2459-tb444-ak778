@@ -96,6 +96,18 @@
     transition-duration: 0.4s;
 }
 
+.topic-btn {
+    background-color: transparent;
+    border: none;
+    font-family: "DM Sans";
+    transition-duration: 0.4s;
+}
+
+.topic-btn:hover {
+    /* background-color: white; */
+    color: #FFF1A7;
+}
+
 .step-links a {
     color: #86BBD8;
 }
