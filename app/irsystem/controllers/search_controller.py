@@ -93,7 +93,7 @@ def search():
             data = [{'title':'No Results Found', 'url':'https://cusmiles-v2.herokuapp.com/'}]
     if (random == "Give me Anything!"):
         output_message, data = random_helper()
-    return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, topics=topics)
+    return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, topics=topics, query=query)
 
 
 def random_helper():

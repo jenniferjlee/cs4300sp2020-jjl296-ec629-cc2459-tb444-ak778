@@ -11,13 +11,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0/dist/confetti.browser.min.js"></script>
 
-<script>    
+<script>
     function showConfetti() {
         var myCanvas = document.createElement('canvas');
         document.appendChild(myCanvas);
         confetti();
     }
-    </script>
+</script>
 
 <body>
     <div class="topcorner">
@@ -31,8 +31,7 @@
         </script>
     </div>
     <form class="form-inline global-search topmost">
-        <h1 style="font-size: 40px; font-family:DM Sans; color: #272343"
-        onclick="showConfetti()" id="confetti">
+        <h1 style="font-size: 40px; font-family:DM Sans; color: #272343" onclick="showConfetti()" id="confetti">
             Search for uplifting news about any topic
         </h1>
 
@@ -40,7 +39,7 @@
 
         <div class="form-group">
             <input style="font-family:DM Sans; color: #495057" id="input" type="text" name="search" class="form-control"
-                placeholder='Type any keyword like "dogs"'>
+                placeholder='Type any keyword like "dogs"' value={{query}}>
             <button style="font-family:DM Sans; background-color:#86BBD8" type="submit" class="btn btn-info"
                 id="submitButton"> Search
             </button>
@@ -67,20 +66,20 @@
         <h1>{{output_message}}</h1>
         <br>
         {% for d in data %}
-        
+
         <div id="parent">
             <div id="child">
                 <h2><a href={{d["url"]}}>{{d["title"]}}</a></h2>
             </div>
             {% if d["title"] !='No Results Found' %}
 
-            
-            <button type="submit" name="similar" id="submitButton"
-            class="btn btn-info" value= {{ d['title'] }} >See Similar Articles</button>
+
+            <button type="submit" name="similar" id="submitButton" class="btn btn-info" value={{ d['title'] }}>See
+                Similar Articles</button>
 
             <br>
             <strong>Date: </strong> {{d["date"]}} &emsp;
-        
+
 
             <strong>Source: </strong> {{d["source"]}}
             {% if d["score"] != None %}
@@ -132,7 +131,7 @@
         {% endif %}
     </form>
 
-    
+
 
     <footer style="font-family:DM Sans">
         Created by: {{ netid }} <a href="https://cusmiles.herokuapp.com/">Prototype 1</a>
