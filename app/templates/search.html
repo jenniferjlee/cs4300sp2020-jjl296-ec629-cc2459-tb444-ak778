@@ -35,27 +35,27 @@
             Search for uplifting news about any topic
         </h1>
 
-        <br><br>
 
         <div class="form-group">
             <input style="font-family:DM Sans; color: #495057" id="input" type="text" name="search" class="form-control"
                 placeholder='Type any keyword like "dogs"' value="{{query}}">
+
+                Recency
+                <select id="sorts" onchange="changeRecency()" name="r_sort">
+                    <option value="">Optional</option>
+                    <option value="new">Newer</option>
+                    <option value="old">Older</option>
+                </select>
+
             <button style="font-family:DM Sans; background-color:#86BBD8" type="submit" class="btn btn-info"
-                id="submitButton"> Search
-            </button>
-            <button style="font-family:DM Sans; background-color:#F9CF51" type="submit" class="btn btn-info"
-                id="submitButton" , name="random" , value="Give me Anything!"> Give me Anything!
-            </button>
+            id="submitButton"> Search
+        </button>
+
         </div>
         <br><br>
-        <div id="sorting">
-            Recency
-            <select id="sorts" onchange="changeRecency()" name="r_sort">
-                <option value="">Select</option>
-                <option value="new">Newer</option>
-                <option value="old">Older</option>
-            </select>
-        </div>
+        <button style="font-family:DM Sans; background-color:#F9CF51" type="submit" class="btn btn-info"
+        id="submitButton" , name="random" , value="Give me Anything!"> Give me Anything!
+    </button>
     </form>
 
 
