@@ -68,7 +68,7 @@
 
         {% for d in data %}
         <div id="parent">
-            <div id="child">
+            <div id="child">             
                 <h2><a href={{d["url"]}}>
                     {% for word in d["title"].split(" ") %}
                     {% if word in stemming_words %}
