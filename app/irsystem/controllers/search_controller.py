@@ -101,7 +101,7 @@ def search():
     if topic is not None:
         output_message, data = topic_helper(topic)
     if similar is not None:
-        output_message = similar
+        output_message = "Articles Similar to " + similar
         data = similarDocs[similar]
     if query is None:
         query = ""

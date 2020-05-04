@@ -31,7 +31,7 @@
             };
         </script>
     </div>
-    
+
     <form class="form-inline global-search topmost">
         <h1 style="font-size: 40px; font-family:DM Sans; color: #272343" onclick="showConfetti()" id="confetti">
             Search for uplifting news about any topic
@@ -66,27 +66,27 @@
     <form class="form-inline global-search middle-body">
         {% if data %}
 
-        {% if 'Results for' in output_message%}
+
         <h1 style="font-size: 25px; font-family:DM Sans; color: #272343">{{output_message}}</h1>
 
-        {% else %}
-        <h1 style="font-size: 25px; font-family:DM Sans; color: #272343"> Articles similar to </h1>
-        <i style="font-size: 25px; font-family:DM Sans; color: #272343"> {{output_message}} </i> 
-        {% endif %}
+
+
 
         <!-- <br> -->
         {% for d in data %}
         <div id="parent">
             <div id="child">
-                <h2><a href={{d["url"]}}><div id="myDiv">
-                    {% for word in d["title"].split(" ") %}
-                    {% if word in query.split() %}
-                    <strong>{{word}}</strong>
-                    {% else %}
-                    {{word}}
-                    {% endif %}
-                    {% endfor %}
-                </div></a></h2>
+                <h2><a href={{d["url"]}}>
+                        <div id="myDiv">
+                            {% for word in d["title"].split(" ") %}
+                            {% if word in query.split() %}
+                            <strong>{{word}}</strong>
+                            {% else %}
+                            {{word}}
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </a></h2>
             </div>
             {% if d["title"] !='No Results Found' %}
 
@@ -120,7 +120,7 @@
             {% endif %}
         </div>
         {% endfor %}
-        <script type = "text/javascript" src = "/static/script.js" ></script>            
+        <script type="text/javascript" src="/static/script.js"></script>
         <!-- <button id= "seeMore" type="button">See More!</button> -->
         {% else %}
         <h1 style="font-size: 40px; font-family:DM Sans; color: #272343">
