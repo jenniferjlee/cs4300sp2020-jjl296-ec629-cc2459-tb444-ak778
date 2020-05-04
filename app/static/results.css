@@ -10,12 +10,12 @@ a:active {
     display: inline-block;
 }
 
-.middle-body a:link {
+a:link {
     color: #272343;
 }
 
-.middle-body a:visited {
-    color: #272343;
+a:visited {
+    color: #F784AD;
 }
 
 a:hover {
@@ -24,7 +24,7 @@ a:hover {
 }
 
 a:active {
-    color: #272343
+    color: #F784AD
 }
 
 .dropdown {
@@ -259,4 +259,10 @@ h2 {
 
   .invisible {
     display: none
+  }
+
+  .datesource {
+    top: 2%;
+    right: 2%;
+    text-align: right
   }

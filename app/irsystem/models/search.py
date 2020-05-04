@@ -117,7 +117,6 @@ def get_combined_results(output_A, output_B, weight_A, weight_B):
         else:
             combined_output.append((weight_B*score_B, doc_B))
             j+=1
-    print(combined_output[0])
     return combined_output
 
 
