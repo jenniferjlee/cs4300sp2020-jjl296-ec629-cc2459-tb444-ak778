@@ -54,7 +54,7 @@ def get_top_k(results, k, input_data):
     for i in range(min(k, len(results))):
         doc_id = results[i][1]
         doc_info = {'title' : input_data[doc_id].get('title'), 'url': input_data[doc_id].get('url'),
-                    'date':input_data[doc_id].get('date'), 'score':input_data[doc_id].get('score'),
+                    'date':input_data[doc_id].get('date'), 'score': input_data[doc_id].get('score'),
                     'source':input_data[doc_id].get('source'), 'summary':input_data[doc_id].get('summary')}
         output.append(doc_info)
     return output

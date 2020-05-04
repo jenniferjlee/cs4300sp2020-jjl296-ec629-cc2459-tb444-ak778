@@ -85,7 +85,8 @@
             <br>
             <strong class="datesource">Source: </strong> {{d["source"]}}
             {% if d["score"] != None %}
-            <strong class="datesource">⬆</strong> {{d["score"]}}
+            {% set number = d["score"] | int %}
+            <strong class="datesource">⬆</strong> {{number}}
             {% endif %}
             <br>
 
