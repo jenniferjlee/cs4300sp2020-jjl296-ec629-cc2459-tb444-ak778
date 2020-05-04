@@ -85,12 +85,12 @@
             <button type="submit" name="similar" id="submitButton" class="btn btn-info" value="{{d["title"]}}">See
                 Similar Articles</button>
             <br>
-            <strong>Date: </strong> {{d["date"]}} &emsp;
+            <strong class="datesource">Date: </strong> {{d["date"]}} &emsp;
 
             <br>
-            <strong>Source: </strong> {{d["source"]}}
+            <strong class="datesource">Source: </strong> {{d["source"]}}
             {% if d["score"] != None %}
-            <strong>⬆</strong> {{d["score"]}}
+            <strong class="datesource">⬆</strong> {{d["score"]}}
             {% endif %}
             <br>
 

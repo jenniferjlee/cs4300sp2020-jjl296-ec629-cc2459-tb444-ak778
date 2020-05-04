@@ -260,3 +260,9 @@ h2 {
   .invisible {
     display: none
   }
+
+  .datesource {
+    top: 2%;
+    right: 2%;
+    text-align: right
+  }
