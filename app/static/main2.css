@@ -9,7 +9,7 @@
     .global-search {
         padding: 20px 0;
         text-align: center;
-        align-items: center;
+        /* align-items: center; */
     }
     body,
     p,
