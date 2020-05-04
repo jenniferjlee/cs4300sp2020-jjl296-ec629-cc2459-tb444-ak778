@@ -1,7 +1,5 @@
 a:link, a:visited, a:hover, a:active {
   color: white;
-  padding: 14px 25px;
-  text-align: center;
   text-decoration: none;
   display: inline-block;
 }
@@ -234,17 +232,28 @@ h3 {
 }
 
 .left {
-  flex: 1 0 50%;
-  text-align: center;
-  /* align-items: initial; */
+  text-align: left;
   align-self: flex-start;
-  max-width: 50%;
   word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 15px;
 }
 
 .right {
-  flex: 1 0 50%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  padding-right: 10px;
+  padding: 15px;
+  justify-content: center;
+}
+
+.similarbutton {
+  margin-top: 5px;
+  margin-right: 0px;
+  width: 150px;
   align-self: flex-end;
 }
 
@@ -255,7 +264,3 @@ h3 {
   word-wrap: break-word;
   justify-content: flex-end;
 } */
-
-.fillspace {
-  flex: auto;
-}

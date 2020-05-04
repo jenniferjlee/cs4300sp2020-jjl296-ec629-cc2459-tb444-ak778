@@ -62,7 +62,7 @@
         {% for d in data %}
         <div id="parent">
             <div class="left">
-                <div id="child" style="float: left;">
+                <div id="child">
                     <h2><a href={{d["url"]}}>
                             {% for word in d["title"].split(" ") %}
                             {% if word in stemming_words %}
@@ -89,21 +89,21 @@
                 </div>
             </div>
             {% if d["title"] !='No Results Found' %}
-            <div class="fillspace"></div>
-            <div style="margin-right: 20px; float:right" class="right">
-                <br><br>
-                <strong>Date: </strong> {{d["date"]}} &emsp;
-                <br>
-                <strong>Source: </strong> {{d["source"]}}
-                {% if d["score"] != None %}
-                {% set number = d["score"] | int %}
-                <strong>⬆</strong> {{number}}
-                {% endif %}
-                <br>
-                <button type="submit" name="similar" id="submitButton"
-                    style="float: right; margin-right: 20px; margin-top: 10px" class="right btn btn-info"
+            <div class="middle"></div>
+            <div class="right">
+                <span><strong>Date: </strong> {{d["date"]}} </span>
+
+                <span><strong>Source: </strong> {{d["source"]}}
+                    {% if d["score"] != None %}
+                    {% set number = d["score"] | int %}
+                    <strong>⬆</strong> {{number}}
+                    {% endif %}
+                </span>
+
+                <button type="submit" name="similar" id="submitButton" class="btn btn-info similarbutton"
                     value="{{d["title"]}}">See
-                    Similar Articles</button>
+                    Similar Articles
+                </button>
             </div>
 
             <br>
