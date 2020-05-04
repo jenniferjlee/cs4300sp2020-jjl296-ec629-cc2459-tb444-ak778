@@ -62,19 +62,19 @@
         {% for d in data %}
         <div id="parent">
             <div id="left">
-            <div id="child" style="float: left;">
-                <h2><a href={{d["url"]}}>
-                        {% for word in d["title"].split(" ") %}
-                        {% if word in stemming_words %}
-                        <strong>
-                            <div style="color:rgb(177, 148, 6)">{{word}}</div>
-                        </strong>
-                        {% else %}
-                        {{word}}
-                        {% endif %}
-                        {% endfor %}
-                    </a></h2>
-            </div>
+                <div id="child" style="float: left;">
+                    <h2><a href={{d["url"]}}>
+                            {% for word in d["title"].split(" ") %}
+                            {% if word in stemming_words %}
+                            <strong>
+                                <div style="color:rgb(177, 148, 6)">{{word}}</div>
+                            </strong>
+                            {% else %}
+                            {{word}}
+                            {% endif %}
+                            {% endfor %}
+                        </a></h2>
+                </div>
             </div>
             {% if d["title"] !='No Results Found' %}
             <br>
@@ -87,9 +87,9 @@
                 <strong>⬆</strong> {{number}}
                 {% endif %}
                 <br>
-                <button type="submit" name="similar" id="submitButton" 
-                style="float: right; margin-right: 10px; margin-top: 10px"
-                class="btn btn-info" value="{{d["title"]}}">See
+                <button type="submit" name="similar" id="submitButton"
+                    style="float: right; margin-right: 10px; margin-top: 10px" class="btn btn-info"
+                    value="{{d["title"]}}">See
                     Similar Articles</button>
             </div>
 
