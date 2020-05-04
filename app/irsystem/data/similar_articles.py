@@ -9,18 +9,8 @@ import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 from numpy import linalg as LA
 
-# import nltk
-# import ssl
 
-# try:
-#     _create_unverified_https_context = ssl._create_unverified_context
-# except AttributeError:
-#     pass
-# else:
-#     ssl._create_default_https_context = _create_unverified_https_context
-
-# nltk.download()
-data_file_name = "final_data.json"
+data_file_name = "final_data4.json"
 
 def load_json_file(name):
     current_directory = os.path.dirname(os.path.realpath(__file__))
@@ -34,12 +24,6 @@ uniqueData = list({v['title']:v for v in data}.values())
 data = uniqueData
 
 num_articles = len(data)
-# print(num_articles)
-# print(str(num_articles) + ' articles loaded')
-# print('Each article has the following features:')
-# print(data[0].keys())
-#['title', 'url', 'date', 'transcript', 'source']
-
 
 # From A5
 
@@ -81,17 +65,13 @@ def get_sim(art1, art2, article_by_vocab, article_title_to_index):
 
 articleTitle1 = 'After 13 Years of Social Distancing, Giant Pandas Finally Mate During Peaceful COVID-19 Zoo Closures'
 articleTitle2 = '16-Year-Old Has Been Using His Flying Lessons to Deliver Medical Supplies to Rural Hospitals Fighting COVID'
-articleTitle3 = "Trebek to Special Jeopardy! Guest: 'I Don't Normally Do This'"
+# articleTitle3 = "Trebek to Special Jeopardy! Guest: 'I Don't Normally Do This'"
 
-print("Similarity: pandas in covid vs flying lessons in covid")
-print("======")
-test1 = get_sim(articleTitle1, articleTitle2, article_by_vocab, article_title_to_index)
-print(test1)
 
-print("Similarity: pandas in covid vs jeopardy")
-print("======")
-test2 = get_sim(articleTitle1, articleTitle3, article_by_vocab, article_title_to_index)
-print(test2)
+# print("Similarity: pandas in covid vs jeopardy")
+# print("======")
+# test2 = get_sim(articleTitle1, articleTitle2, article_by_vocab, article_title_to_index)
+# print('sim is ' + str(test2))
 
 def top_terms(movs, article_by_vocab, index_to_vocab, article_title_to_index, top_k=10):
     """Returns a list of the top k similar terms (in order) between the
@@ -163,6 +143,14 @@ def get_ranked_articles(article, matrix):
     
     return article_score_lst
 
+similars = dict()
+for post in data:
+    title = post['title']
+    similar = get_ranked_articles(title, articles_sims_cos)[:5]
+    similars[title] = similar
+
+with open('similars.json', 'w') as json_file:
+    json.dump(similars, json_file) 
 
 def print_top(art, matrix, sim_type, k=10):
     """
@@ -184,4 +172,4 @@ def print_top(art, matrix, sim_type, k=10):
         print("%.3f %s" % (score, art))
 
 
-print_top(articleTitle1, articles_sims_cos, 'cosine sim')
+# print_top(articleTitle1, articles_sims_cos, 'cosine sim')

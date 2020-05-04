@@ -130,3 +130,8 @@ def get_random(input_data):
     return output
 
 
+# input_data = top 25 results
+def get_similar(input_data):
+    output = []
+    
+    

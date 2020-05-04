@@ -10,7 +10,7 @@ project_name = "CUSmiles"
 net_id = "Jennifer Lee: jjl296, Camilo Cedeno-Tobon: cc2459, Tanmay Bansal: tb444, Alina Kim: ak778, Ein Chang: ec629"
 
 # Camilo's changes
-documents = load_json_file('final_data4.json')
+documents = load_json_file('final_data5.json')
 transcript_idf_values = load_json_file('transcript_idf_values.json')
 transcript_inverted_index = load_json_file('transcript_inverted_index.json')
 transcript_norms = load_json_file('transcript_norms.json')
@@ -26,11 +26,18 @@ norms = load_json_file('transcript_norms1.json')"""
 
 classifiedDocs = load_json_file('final_data_classified.json')
 
+topicDocs = load_json_file('topics.json')
+
+similarDocs = load_json_file('similars_final.json')
+
 
 @irsystem.route('/', methods=['GET'])
 def search():
     query = request.args.get('search')
     random = request.args.get('random')
+    similar = request.args.get('similar')
+    topic = request.args.get('topic')
+
     
     output_message = ''
     data = []
@@ -64,9 +71,11 @@ def search():
         transcript_results = search_tfdf_method(query, transcript_inverted_index, transcript_norms, transcript_idf_values, tokenize)
         title_results = search_tfdf_method(query, title_inverted_index, title_norms, title_idf_values, tokenize)
         combined_results = get_combined_results(transcript_results, title_results, 0.4, 0.6)
-        top_results = get_top_k(combined_results, 10, documents)
-        output_message = "Your search: " + query
+        top_results = get_top_k(combined_results, 25, documents)
+        output_message = "Results for " + query
         data = top_results
+
+        #update data to have similar {title, links}
 
         #Change to sort by: relevancy and popularity once this works
 
@@ -75,30 +84,55 @@ def search():
         isRecent = request.args.get('r_sort')
         isPopular = request.args.get('p_sort')
 
+
         if (isRecent=="new"):
-            print('new')
-            data = sort_by_recency(transcript_results, 10, documents, True)
+            data = sort_by_recency(transcript_results, 25, documents, True)
 
         if (isRecent=="old"):
-            data = sort_by_recency(transcript_results, 10, documents, False)
-        
-        # hard to test yet, need to show comments & upvotes
-        # I don't think this is working or very small changes, I don't see a diff in results?
-        # if (isPopular=="high"):
-        #     data = sort_by_popularity(transcript_results, 10, documents, True)
-        
-        # if (isPopular=="low"):
-        #     data = sort_by_popularity(transcript_results, 10, documents, False)
+            data = sort_by_recency(transcript_results, 25, documents, False)
 
 
         if (len(data)==0):
-            data = [{'title':'No Results Found', 'url':''}]
+            # change url to final link!
+            data = [{'title':'No Results Found', 'url':'https://cusmiles-v2.herokuapp.com/'}]
+
     if (random == "Give me Anything!"):
         output_message, data = random_helper()
-    return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, topics=topics)
+    if topic is not None:
+        output_message, data = topic_helper(topic)
+    if similar is not None:
+        output_message = "Articles Similar to " + similar
+        data = similarDocs[similar]
+    if query is None:
+        query = ""
+    
+    return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, topics=topics, query=query)
 
 
 def random_helper():
     output_message = "Let's C U Smile!"
     data = get_random(documents)
     return output_message, data
+
+def topic_helper(topic):
+    output_message = "Uplifting News on " + topic
+    # if topic == "Money":
+    #     greendocs = []
+    #     for doc in classifiedDocs:
+    #         topic_num = doc.get('topic')
+    #         if topic_num == 0:
+    #             greendocs.append((doc.get('topic_strength'), doc))
+    #     greendocs.sort(key=lambda x:x[0])
+    #     greendocs.reverse()
+    # data = []
+    # for i in range(10):
+    #     data.append(greendocs[i][1])
+    data = []
+    for doc in topicDocs:
+        category = doc.get('topic')
+        if topic == category:
+            data.append(doc)
+    return output_message,data 
+
+            
+    

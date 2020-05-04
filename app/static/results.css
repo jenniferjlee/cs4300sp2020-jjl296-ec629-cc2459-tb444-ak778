@@ -252,3 +252,11 @@ h2 {
   .popular-topics {
     padding-bottom: 50px;
   }
+
+  .seeMore{
+    /* float: right; */
+  }
+
+  .invisible {
+    display: none
+  }
