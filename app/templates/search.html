@@ -66,8 +66,15 @@
     <form class="form-inline global-search middle-body">
         {% if data %}
 
-        <h1>{{output_message}}</h1>
-        <br>
+        {% if 'Results for' in output_message%}
+        <h1 style="font-size: 25px; font-family:DM Sans; color: #272343">{{output_message}}</h1>
+
+        {% else %}
+        <h1 style="font-size: 25px; font-family:DM Sans; color: #272343"> Articles similar to </h1>
+        <i style="font-size: 25px; font-family:DM Sans; color: #272343"> {{output_message}} </i> 
+        {% endif %}
+
+        <!-- <br> -->
         {% for d in data %}
         <div id="parent">
             <div id="child">
