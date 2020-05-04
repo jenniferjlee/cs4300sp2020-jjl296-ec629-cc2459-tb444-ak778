@@ -77,6 +77,7 @@
                 </div>
                 <div id="child">
                     <strong>Summary: </strong>
+                    {% if d.get("summary") != None %}
                     {% for word in d["summary"].split(" ") %}
                     {% if word in stemming_words %}
                     <strong>
@@ -86,6 +87,7 @@
                     {{word}}
                     {% endif %}
                     {% endfor %}
+                    {% endif %}
                 </div>
             </div>
             {% if d["title"] !='No Results Found' %}
