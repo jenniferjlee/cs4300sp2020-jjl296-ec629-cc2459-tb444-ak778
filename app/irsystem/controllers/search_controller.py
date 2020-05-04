@@ -5,6 +5,10 @@ from app.irsystem.data.processor import load_json_file
 import os
 from app.irsystem.data.processor import tokenize
 from app.irsystem.models.search import *
+from nltk.stem import PorterStemmer
+from nltk.tokenize import word_tokenize
+
+ps = PorterStemmer()
 
 project_name = "CUSmiles"
 net_id = "Jennifer Lee: jjl296, Camilo Cedeno-Tobon: cc2459, Tanmay Bansal: tb444, Alina Kim: ak778, Ein Chang: ec629"
@@ -39,6 +43,8 @@ def search():
     output_message = ''
     data = []
     topics = []
+    stems = []
+    stemming_words = []
     if (not query):
         output_message = "Let's C U Smile!"
         topic0 = []
@@ -92,6 +98,15 @@ def search():
         if (len(data)==0):
             # change url to final link!
             data = [{'title':'No Results Found', 'url':'https://cusmiles-v2.herokuapp.com/'}]
+        else:
+            stems = ps.stem(query)
+            for d in data:
+                for word in d['title'].split():
+                    if ps.stem(word) in stems and len(word) >1:
+                        stemming_words.append(word)
+                for word in d['summary'].split():
+                    if ps.stem(word) in stems and len(word) >1:
+                        stemming_words.append(word)
 
     if (random == "Give me Anything!"):
         output_message, data = random_helper()
@@ -103,7 +118,7 @@ def search():
     if query is None:
         query = ""
     
-    return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, topics=topics, query=query)
+    return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, topics=topics, query=query, stemming_words=stemming_words)
 
 
 def random_helper():
