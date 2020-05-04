@@ -251,10 +251,22 @@ h3 {
   align-self: flex-end;
 }
 
-/* .toppart {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  word-wrap: break-word;
-  justify-content: flex-end;
-} */
+@media only screen and (max-width: 600px) {
+  #parent {
+    flex-direction: column;
+  }
+ 
+  .left {
+    width: 100%;
+    text-align: center;
+  }
+ 
+  .right {
+    text-align: center;
+    padding: 0;
+  }
+
+  .similarbutton {
+    align-self: center;
+  }
+ }
