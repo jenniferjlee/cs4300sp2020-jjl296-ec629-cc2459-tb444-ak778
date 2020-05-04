@@ -7,6 +7,7 @@ from app.irsystem.data.processor import tokenize
 from app.irsystem.models.search import *
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
+import re
 
 ps = PorterStemmer()
 
@@ -77,10 +78,10 @@ def search():
             stems = ps.stem(query)
             for d in data:
                 for word in d['title'].split():
-                    if ps.stem(word) in stems and len(word) >1:
+                    if ps.stem(re.sub('[^A-Za-z0-9]+', '', word)) in stems and len(word) >1:
                         stemming_words.append(word)
                 for word in d['summary'].split():
-                    if ps.stem(word) in stems and len(word) >1:
+                    if ps.stem(re.sub('[^A-Za-z0-9]+', '', word)) in stems and len(word) >1:
                         stemming_words.append(word)
 
     if (random == "Give me Anything!"):

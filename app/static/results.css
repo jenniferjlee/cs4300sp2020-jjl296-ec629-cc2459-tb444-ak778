@@ -69,50 +69,52 @@ a:active {
   width: 14em;
   height: 14em;
   shape-outside: circle(50%);
-  color: white
+  color: white;
+  font-size: 18px;
 }
 
 .circle1 {
   background-color: #EF4565;
-  width: 13em;
-  height: 13em;
+  width: 8em;
+  height: 8em;
   float: left;
   margin-right: 15px;
-  margin-top: 150px;
+  margin-top: 40px;
 }
 
 .circle2 {
   background-color: #F2994A;
-  width: 12em;
-  height: 12em;
+  width: 6em;
+  height: 6em;
   float: left;
-  /* margin-right: 20px; */
+  margin-left: 5px;
 }
 
 .circle3 {
   background-color: #F2C94C;
   float: left;
-  width: 17em;
-  height: 17em;
+  width: 12em;
+  height: 12em;
   margin-bottom: 30px;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-right: 10px;
 }
 
 .circle4 {
   background-color: #6FCF97;
-  width: 12em;
-  height: 12em;
-  margin-right: 30px;
+  width: 7em;
+  height: 7em;
+  margin-right: 10px;
   float: left
 }
 
 .circle5 {
   background-color: #56CCF2;
-  width: 11em;
-  height: 11em;
-  margin-right: 30px;
-  margin-top: -10px;
+  width: 9em;
+  height: 9em;
+  margin-right: 5px;
+  margin-left: 50px;
+  margin-top: 20px;
   float: right;
 }
 
@@ -121,25 +123,17 @@ a:active {
   width: 8em;
   height: 8em;
   float: right;
-  margin-right: 30px;
-  margin-top: 40px;
+  margin-right: 20px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .circle7 {
   background-color: #BB6BD9;
-  width: 13em;
-  height: 13em;
+  width: 9em;
+  height: 9em;
   float: right;
-  margin-right: -400px;
-}
-
-.circle6 {
-  background-color: #F784AD;
-  width: 12em;
-  height: 12em;
-  float: right;
-  margin-top: 40px;
+  margin-right: 20px;
 }
 
 h2 {
