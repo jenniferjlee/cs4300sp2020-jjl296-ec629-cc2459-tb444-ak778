@@ -94,7 +94,7 @@ def search():
     if query is None:
         query = ""
     
-    return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, topics=topics, query=query, stemming_words=stemming_words)
+    return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, query=query, stemming_words=stemming_words)
 
 
 def random_helper():
