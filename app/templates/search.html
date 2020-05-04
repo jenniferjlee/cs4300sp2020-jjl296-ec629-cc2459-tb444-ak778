@@ -94,7 +94,8 @@
             {% endif %}
             <br>
 
-            {% if 'Articles similar to' in output_message%}
+            {% if 'Results for' not in output_message and 
+            'C U Smile' not in output_message%}
             <strong>Similarity:</strong> {{d["sim"]}}
             {% endif %}
 
