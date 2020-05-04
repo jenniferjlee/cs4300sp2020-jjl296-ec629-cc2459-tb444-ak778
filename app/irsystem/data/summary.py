@@ -1,7 +1,7 @@
 from nltk.corpus import stopwords
 from nltk.cluster.util import cosine_distance
 import numpy as np
-import networkx as nx
+# import networkx as nx
 import os
 import json
 import nltk
@@ -186,9 +186,10 @@ def main():
             summary = post['summary']
             score = post['score']
             date = post['date']
+            url = post['url']
 
             total_similars.append({'title': title, 'sim': rounded_sim, 'source': source, 'summary': summary,
-            'score': score, 'date': date})
+            'score': score, 'date': date, 'url': url})
         total[title_key] = total_similars
     
     with open('similars_final.json', 'w') as json_file:
