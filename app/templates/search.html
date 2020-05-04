@@ -69,7 +69,7 @@
         {% for d in data %}
         <div id="parent">
             <div id="child">
-                <h2><a href={{d["url"]}}><div id="myDiv">
+                <h2><a href={{d["url"]}}>
                     {% for word in d["title"].split(" ") %}
                     {% if word in stemming_words %}
                     <strong>{{word}}</strong>
@@ -77,7 +77,7 @@
                     {{word}}
                     {% endif %}
                     {% endfor %}
-                </div></a></h2>
+                </a></h2>
             </div>
             {% if d["title"] !='No Results Found' %}
 
