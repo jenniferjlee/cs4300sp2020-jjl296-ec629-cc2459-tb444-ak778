@@ -189,3 +189,11 @@ footer {
 mark {
     background-color: #FFF1A7;
 }
+
+@media only screen and (min-width: 1200px) {
+    .middle-body {
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+   }
