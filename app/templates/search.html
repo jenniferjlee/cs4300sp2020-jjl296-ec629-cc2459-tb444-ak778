@@ -61,13 +61,7 @@
 
         {% for d in data %}
         <div id="parent">
-<<<<<<< HEAD
             <div id="child" style="float: left;"> 
-=======
-            <div id="toppart">
-            <div id="left">
-            <div id="child">
->>>>>>> dee978f5793464f4ef1bd17b593001533dfbd0a2
                 <h2><a href={{d["url"]}}>
                         {% for word in d["title"].split(" ") %}
                         {% if word in stemming_words %}
