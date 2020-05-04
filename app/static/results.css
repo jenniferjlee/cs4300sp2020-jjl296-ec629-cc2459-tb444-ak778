@@ -115,23 +115,26 @@ a:active {
     width: 11em;
     height: 11em;
     margin-right: 30px;
-    margin-top: 20px;
+    margin-top: -10px;
     float: right;
 }
-.circle6 {
+.circle8 {
     background-color: #2F80ED;
+    width: 8em;
+    height: 8em;
     float: right;
-    margin-left: 10px;
-    margin-bottom: 10px;
+    margin-right: 30px;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 .circle7 {
     background-color: #BB6BD9;
     width: 13em;
     height: 13em;
     float: right;
-    margin-right: 20px;
+    margin-right: -500px;
 }
-.circle8 {
+.circle6 {
     background-color: #F784AD;
     width: 12em;
     height: 12em;
