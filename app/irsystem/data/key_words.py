@@ -5,7 +5,7 @@ import re
 import os
 import json
 
-data_file_name = "final_data1.json"
+data_file_name = "final_data5.json"
 
 def save_json_file(name, input_data):
     current_directory = os.path.dirname(os.path.realpath(__file__))
@@ -84,14 +84,16 @@ def make_keywords(row, title_scale = 0.3):
             top += 1
             if top == 20: 
                 break
-    row["keywords"] = top_20
+    #print(top_20)
+    top_20_tup = [(word,freq) for word,freq in top_20.items()]
+    return top_20_tup
 
 def create_inverted_index(input_data):
     """creates the inverted index
     
     Arguments
     =========
-    input_data: dataframe with keywords column (dictionary word: frequency)
+    input_data: dataframe with keywords column (list of [word, frequency])
     
     Returns
     =======
@@ -101,7 +103,8 @@ def create_inverted_index(input_data):
     idx = {}
     doc_id = 0
     for index, row in input_data.iterrows():
-        for word, freq in row["keywords"].items():
+        for wordfreq in row["keywords"]:
+            word, freq = wordfreq
             if idx.get(word) is None:
                 idx[word] = []
             idx.get(word).append((index,freq))
@@ -118,15 +121,14 @@ def main():
     current_directory = os.path.dirname(os.path.realpath(__file__))
     file_path = os.path.join(current_directory, data_file_name)
     df = pd.read_json (file_path, convert_dates=False)
-    df["keywords"] = ""
     for index, row in df.iterrows():
-        make_keywords(row)
-    df.to_json('total_data_keywords.json', orient='records')
-    with open('total_data_keywords.json', 'w', encoding='utf-8') as file:
+        df.loc[index,"keywords"] = [make_keywords(row)]
+    df.to_json('final_data_keywords.json', orient='records')
+    with open('final_data_keywords.json', 'w', encoding='utf-8') as file:
         df.to_json(file, force_ascii=False, orient='records')
     print('Successfully Created and Saved Files')
     
-    keywords = pd.read_json ('total_data_keywords.json', convert_dates=False)
+    keywords = pd.read_json ('final_data_keywords.json', convert_dates=False)
     run(keywords)
     print("Successfully made inverted index")
 

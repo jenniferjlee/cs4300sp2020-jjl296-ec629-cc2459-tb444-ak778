@@ -18,7 +18,7 @@
         color: #495057;
         text-align: center;
         padding: 10px;
-        margin-top: 10px;
+        margin-top: -5px;
     }
     script {
         display: none;
@@ -99,6 +99,10 @@
     font-family: "DM Sans";
     border-radius: 4px;
     transition-duration: 0.4s;
+    color: #272343;
+    padding-right: 10x;
+    margin-right: 10px;
+    margin-top: -10px;
 }
 
 .topic-btn {
