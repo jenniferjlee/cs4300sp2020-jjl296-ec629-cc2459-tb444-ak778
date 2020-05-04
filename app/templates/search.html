@@ -72,7 +72,7 @@
                 <h2><a href={{d["url"]}}>
                     {% for word in d["title"].split(" ") %}
                     {% if word in stemming_words %}
-                    <strong>{{word}}</strong>
+                    <strong><div style="color:rgb(177, 148, 6)">{{word}}</div></strong>
                     {% else %}
                     {{word}}
                     {% endif %}
@@ -103,7 +103,7 @@
                 <strong>Summary: </strong>
                 {% for word in d["summary"].split(" ") %}
                 {% if word in stemming_words %}
-                <mark>{{word}}</mark>
+                <strong><div style="color:rgb(177, 148, 6)">{{word}}</div></strong>
                 {% else %}
                 {{word}}
                 {% endif %}
