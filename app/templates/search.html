@@ -56,10 +56,7 @@
     <form class="form-inline global-search middle-body">
         {% if data %}
 
-        {% if 'Results for' in output_message%}
-        <h1 style="font-size: 25px; font-family:DM Sans; color: #118AB2">{{output_message}}</h1>
-
-        {% elif 'C U Smile' in output_message%}
+        {% if 'Results for' in output_message or 'C U Smile' in output_message or 'Uplifting News' in output_message%}
         <h1 style="font-size: 25px; font-family:DM Sans; color: #118AB2">{{output_message}}</h1>
 
         {% else %}
