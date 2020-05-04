@@ -103,7 +103,7 @@
                 <strong>Summary: </strong>
                 {% for word in d["summary"].split(" ") %}
                 {% if word in stemming_words %}
-                <strong>{{word}}</strong>
+                <mark>{{word}}</mark>
                 {% else %}
                 {{word}}
                 {% endif %}
