@@ -6,6 +6,7 @@ from nltk.stem import PorterStemmer
 import re
 import random
 
+
 def search_tfdf_method(query, input_inverted_index, 
         input_doc_norms, input_idf_values, tokenize_method):
     n_docs = len(input_doc_norms)
@@ -59,9 +60,6 @@ def get_top_k(results, k, input_data):
         output.append(doc_info)
     return output
 
-# def sort_by_recency(results):
-#     results.sort(key = lambda x: x['date'], reverse = True)
-#     return results
 
 def sort_by_recency(results, k, input_data, isRecent):
     output = []
@@ -75,12 +73,6 @@ def sort_by_recency(results, k, input_data, isRecent):
     return output
 
 
-# def sort_by_popularity(results, input_data):
-#     results.sort(key = lambda x: x['score'], reverse = True)
-#     return results
-
-# need to change this for the future because a maj of the sources don't have scores bc
-# they aren't from reddit and then are placed last
 
 def sort_by_popularity(results, k, input_data, isPopular):
     output = []
@@ -92,6 +84,7 @@ def sort_by_popularity(results, k, input_data, isPopular):
         output.append(doc_info)
     output.sort(key = lambda x: (x['score'] is None, x['score']), reverse = isPopular)
     return output
+
 
 def get_combined_results(output_A, output_B, weight_A, weight_B):
     i = 0
@@ -129,9 +122,4 @@ def get_random(input_data):
         output.append(doc_info)
     return output
 
-
-# input_data = top 25 results
-def get_similar(input_data):
-    output = []
-    
     

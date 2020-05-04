@@ -14,7 +14,6 @@ are created here and saved as json files.
 
 
 """
-# data_file_name = "final_data_url.json"
 data_file_name = "final_data5.json"
 
 def load_json_file(name):
@@ -229,17 +228,11 @@ def run(feature, input_data, min_df=0):
     # Compute doc norms
     norms = compute_doc_norms(tfidf_matrix)
     # Save data structures
-    
-    #Camilo's Changes
     save_json_file(feature + '_idf_values.json', idf_values)
     save_json_file(feature + '_inverted_index.json', inverted_index)
     save_json_file(feature + '_tfidf_matrix.json', tfidf_matrix)
     save_json_file(feature + '_norms.json', norms)
     
-    #Ein's changes
-    """save_json_file(feature + '_inverted_index1.json', inverted_index)
-    save_json_file(feature + '_tfidf_matrix1.json', tfidf_matrix)
-    save_json_file(feature + '_norms1.json', norms)"""
 
 
 

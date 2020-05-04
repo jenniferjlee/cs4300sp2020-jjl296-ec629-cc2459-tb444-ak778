@@ -47,29 +47,6 @@ def search():
     stemming_words = []
     if (not query):
         output_message = "Let's C U Smile!"
-        topic0 = []
-        topic1 = []
-        topic2 = []
-        for doc in classifiedDocs:
-            topic_num = doc.get('topic')
-            if topic_num == 1:
-                topic1.append((doc.get('topic_strength'), doc))
-            elif topic_num == 0:
-                topic0.append((doc.get('topic_strength'), doc))
-            else:
-                topic2.append((doc.get('topic_strength'), doc))
-        topic0.sort(key=lambda x:x[0])
-        topic0.reverse()
-        topic1.sort(key=lambda x:x[0])
-        topic1.reverse()
-        topic2.sort(key=lambda x:x[0])
-        topic2.reverse()
-        topics = [[],[],[]]
-        for i in range(10):
-            topics[0].append(topic0[i][1])
-            topics[1].append(topic1[i][1])
-            topics[2].append(topic2[i][1])
-                
     else:
         transcript_results = search_tfdf_method(query, transcript_inverted_index, transcript_norms, transcript_idf_values, tokenize)
         title_results = search_tfdf_method(query, title_inverted_index, title_norms, title_idf_values, tokenize)
@@ -77,7 +54,6 @@ def search():
 
         keyword_results = search_keyword_method(query, len(transcript_norms), inverted_index_keyword, tokenize)
         combined_results2 = get_combined_results(combined_results1, keyword_results, 10, 1.5)
-        # top_results = get_top_k(keyword_results, 25, documents)
 
         top_results = get_top_k(combined_results2, 25, documents)
         output_message = "Results for " + query
@@ -96,8 +72,7 @@ def search():
 
 
         if (len(data)==0):
-            # change url to final link!
-            data = [{'title':'No Results Found', 'url':'https://cusmiles-v2.herokuapp.com/'}]
+            data = [{'title':'No Results Found', 'url':'https://cusmile.herokuapp.com/'}]
         else:
             stems = ps.stem(query)
             for d in data:
@@ -110,6 +85,7 @@ def search():
 
     if (random == "Give me Anything!"):
         output_message, data = random_helper()
+        query = ""
     if topic is not None:
         output_message, data = topic_helper(topic)
     if similar is not None:
@@ -128,17 +104,6 @@ def random_helper():
 
 def topic_helper(topic):
     output_message = "Uplifting News on " + topic
-    # if topic == "Money":
-    #     greendocs = []
-    #     for doc in classifiedDocs:
-    #         topic_num = doc.get('topic')
-    #         if topic_num == 0:
-    #             greendocs.append((doc.get('topic_strength'), doc))
-    #     greendocs.sort(key=lambda x:x[0])
-    #     greendocs.reverse()
-    # data = []
-    # for i in range(10):
-    #     data.append(greendocs[i][1])
     data = []
     for doc in topicDocs:
         category = doc.get('topic')
