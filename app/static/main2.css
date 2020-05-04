@@ -140,6 +140,7 @@ footer {
     width: 100%;
     text-align: center;
     padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 #parent {
@@ -188,6 +189,10 @@ footer {
 
 mark {
     background-color: #FFF1A7;
+}
+
+.prototypelink {
+    padding-left: 20px;
 }
 
 @media only screen and (min-width: 1200px) {
