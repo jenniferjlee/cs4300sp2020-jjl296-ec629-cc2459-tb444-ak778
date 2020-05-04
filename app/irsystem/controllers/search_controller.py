@@ -89,10 +89,10 @@ def search():
 
 
         if (isRecent=="new"):
-            data = sort_by_recency(combined_results, 25, documents, True)
+            data = sort_by_recency(combined_results2, 25, documents, True)
 
         if (isRecent=="old"):
-            data = sort_by_recency(combined_results, 25, documents, False)
+            data = sort_by_recency(combined_results2, 25, documents, False)
 
 
         if (len(data)==0):

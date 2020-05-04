@@ -14,12 +14,12 @@ a:link {
     color: #272343;
 }
 
-a:visited {
-    color: #F784AD;
+form a:visited {
+  color: #272343;
 }
 
 a:hover {
-    color: #FFF1a7;
+    color: rgb(177, 148, 6);
     text-decoration: underline
 }
 
@@ -265,4 +265,8 @@ h2 {
     top: 2%;
     right: 2%;
     text-align: right
+  }
+
+  .mark {
+    font-style: italic;
   }
