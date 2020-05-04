@@ -12,14 +12,9 @@
 
 <body>
     <div class="topcorner">
-        <button id="CUSmileLogo" class=logoBtn>
-            <img src="static/logo2.png" alt="CUSmileLogo">
-        </button>
-        <script type="text/javascript">
-            document.getElementById("CUSmileLogo").onclick = function () {
-                location.href = "https://cusmiles-v2.herokuapp.com/";
-            };
-        </script>
+        <a href="https://cusmiles-v2.herokuapp.com/">
+            <img alt="CUSmileLogo" src="static/logo2.png">
+        </a>
     </div>
 
     <form class="form-inline global-search topmost">
@@ -68,14 +63,16 @@
         <div id="parent">
             <div id="child">
                 <h2><a href={{d["url"]}}>
-                    {% for word in d["title"].split(" ") %}
-                    {% if word in stemming_words %}
-                    <strong><div style="color:rgb(177, 148, 6)">{{word}}</div></strong>
-                    {% else %}
-                    {{word}}
-                    {% endif %}
-                    {% endfor %}
-                </a></h2>
+                        {% for word in d["title"].split(" ") %}
+                        {% if word in stemming_words %}
+                        <strong>
+                            <div style="color:rgb(177, 148, 6)">{{word}}</div>
+                        </strong>
+                        {% else %}
+                        {{word}}
+                        {% endif %}
+                        {% endfor %}
+                    </a></h2>
             </div>
             {% if d["title"] !='No Results Found' %}
 
@@ -101,7 +98,9 @@
                 <strong>Summary: </strong>
                 {% for word in d["summary"].split(" ") %}
                 {% if word in stemming_words %}
-                <strong><div style="color:rgb(177, 148, 6)">{{word}}</div></strong>
+                <strong>
+                    <div style="color:rgb(177, 148, 6)">{{word}}</div>
+                </strong>
                 {% else %}
                 {{word}}
                 {% endif %}
