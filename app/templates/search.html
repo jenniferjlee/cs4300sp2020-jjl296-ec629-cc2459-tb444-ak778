@@ -93,12 +93,12 @@
             <div class="right">
                 <span><strong>Date: </strong> {{d["date"]}} </span>
 
-                <span><strong>Source: </strong> {{d["source"]}}
-                    {% if d["score"] != None %}
-                    {% set number = d["score"] | int %}
-                    <strong>⬆</strong> {{number}}
-                    {% endif %}
-                </span>
+                <span><strong>Source: </strong> {{d["source"]}}</span>
+                {% if d["score"] != None %}
+                {% set number = d["score"] | int %}
+                <span><strong>Upvotes: ⬆</strong> {{number}} </span>
+                {% endif %}
+
 
                 {% if 'Results for' not in output_message and 
                 'C U Smile' not in output_message and 'Uplifting News on' not in output_message %}
