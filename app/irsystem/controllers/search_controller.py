@@ -9,7 +9,7 @@ from app.irsystem.models.search import *
 project_name = "CUSmiles"
 net_id = "Jennifer Lee: jjl296, Camilo Cedeno-Tobon: cc2459, Tanmay Bansal: tb444, Alina Kim: ak778, Ein Chang: ec629"
 
-# Camilo's changes
+# Camilo's changes (search)
 documents = load_json_file('final_data5.json')
 transcript_idf_values = load_json_file('transcript_idf_values.json')
 transcript_inverted_index = load_json_file('transcript_inverted_index.json')
@@ -17,6 +17,9 @@ transcript_norms = load_json_file('transcript_norms.json')
 title_idf_values = load_json_file('title_idf_values.json')
 title_inverted_index = load_json_file('title_inverted_index.json')
 title_norms = load_json_file('title_norms.json')
+
+# Keyword Search
+inverted_index_keyword = load_json_file('inverted_index_keywords.json')
 
 # Ein's changes
 """documents = load_json_file('final_data2.json')
@@ -26,9 +29,11 @@ norms = load_json_file('transcript_norms1.json')"""
 
 classifiedDocs = load_json_file('final_data_classified.json')
 
+# Popular Topics
 topicDocs = load_json_file('topics.json')
 
 similarDocs = load_json_file('similars_final.json')
+
 
 
 @irsystem.route('/', methods=['GET'])
@@ -70,8 +75,13 @@ def search():
     else:
         transcript_results = search_tfdf_method(query, transcript_inverted_index, transcript_norms, transcript_idf_values, tokenize)
         title_results = search_tfdf_method(query, title_inverted_index, title_norms, title_idf_values, tokenize)
-        combined_results = get_combined_results(transcript_results, title_results, 0.4, 0.6)
-        top_results = get_top_k(combined_results, 25, documents)
+        combined_results1 = get_combined_results(transcript_results, title_results, 0.4, 0.6)
+
+        keyword_results = search_keyword_method(query, len(transcript_norms), inverted_index_keyword, tokenize)
+        combined_results2 = get_combined_results(combined_results1, keyword_results, 10, 1.5)
+        # top_results = get_top_k(keyword_results, 25, documents)
+
+        top_results = get_top_k(combined_results2, 25, documents)
         output_message = "Results for " + query
         data = top_results
 

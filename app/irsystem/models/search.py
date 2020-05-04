@@ -44,6 +44,7 @@ def search_keyword_method(query, n_docs, input_inverted_index, tokenize_method):
         if(scores[i] > 0):
             sim.append((scores[i], i))
     sim.sort(key = lambda x: x[0], reverse = True)
+    print(sim[0])
     return sim
 
 
@@ -117,6 +118,7 @@ def get_combined_results(output_A, output_B, weight_A, weight_B):
         else:
             combined_output.append((weight_B*score_B, doc_B))
             j+=1
+    print(combined_output[0])
     return combined_output
 
 
