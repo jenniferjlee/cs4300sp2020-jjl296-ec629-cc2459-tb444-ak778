@@ -61,7 +61,6 @@
 
         {% for d in data %}
         <div id="parent">
-            <!-- <div id="toppart"> -->
             <div id="left">
             <div id="child" style="float: left;">
                 <h2><a href={{d["url"]}}>
@@ -93,10 +92,6 @@
                 class="btn btn-info" value="{{d["title"]}}">See
                     Similar Articles</button>
             </div>
-            <!-- </div> -->
-            <!-- <div style="float: right;"> -->
-
-            <!-- </div> -->
 
             <br>
             {% if 'Results for' not in output_message and 
@@ -119,7 +114,6 @@
         </div>
         {% endfor %}
         <script type="text/javascript" src="/static/script.js"></script>
-        <!-- <button id= "seeMore" type="button">See More!</button> -->
         {% else %}
         <h1 style="font-size: 25px; font-family:DM Sans; color: #757575">
             Explore Popular Topics

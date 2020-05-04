@@ -9,7 +9,6 @@
     .global-search {
         padding: 20px 0;
         text-align: center;
-        /* align-items: center; */
     }
     body,
     p,
@@ -25,18 +24,13 @@
     }
     img {
         position: absolute;
-        /* top: 0px;
-        left: 0px; */
         width: 140px;
         height: 120px;
-        /* border: 1px solid #ddd; */
-        /* border-radius: 4px; */
         padding: 5px;
     }
     .form-group {
         margin-top: 15px;
         padding-top: 15px;
-        /* padding-bottom: 15px; */
         font-family: "DM Sans";
         color: #495057;
         padding-bottom: 30px;
@@ -46,7 +40,6 @@
         font-family: "DM Sans";
         color: #495057;
         padding-top: 15px;
-        /* padding-bottom: 15px; */
     }
     .global-search .form-control {
         width: 500px;
@@ -65,7 +58,6 @@
 }
 
 .btn:hover {
-    /* background-color: white; */
     color: #FFF1A7;
     border: #FFF1A7;
 }
@@ -76,7 +68,6 @@
 
 .global-search * {
     display: inline-block;
-    /* margin-bottom: 0; */
 }
 
 .middle-body {
@@ -113,7 +104,6 @@
 }
 
 .topic-btn:hover {
-    /* background-color: white; */
     color: #FFF1A7;
 }
 
@@ -177,7 +167,6 @@ footer {
   }
 
   .switch {
-    /* margin-top: 5px; */
     position: relative;
     display: inline-block;
     width: 60px;

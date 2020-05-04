@@ -67,7 +67,6 @@ a:active {
 }
 
 .circle {
-    /* display: inline; */
     justify-content: center;
   align-items: center;
   border-radius: 100%;
@@ -140,13 +139,11 @@ a:active {
     height: 12em;
     float: right;
     margin-top: 40px;
-    /* margin-left: 70px; */
 }
 
 h2 {
     font-family: "DM Sans";
     color: #495057;
-    /* text-align: center; */
     font-size: 18px;
 }
 
@@ -223,10 +220,6 @@ h2 {
 
   .popular-topics {
     padding-bottom: 50px;
-  }
-
-  .seeMore{
-    /* float: right; */
   }
 
   .invisible {
