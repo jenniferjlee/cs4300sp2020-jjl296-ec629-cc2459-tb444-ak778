@@ -146,7 +146,7 @@ a:active {
 h2 {
     font-family: "DM Sans";
     color: #495057;
-    text-align: center;
+    /* text-align: center; */
     font-size: 18px;
 }
 
@@ -264,12 +264,26 @@ h2 {
     display: none
   }
 
-  .datesource {
-    top: 2%;
-    right: 2%;
-    text-align: right
-  }
-
   .mark {
     font-style: italic;
   }
+
+  .left {
+    flex: 1 0 50%;
+    align-self: flex-start;
+    max-width: 50%;
+    word-wrap: break-word;
+ }
+ 
+ .right {
+    flex: 1 0 50%;
+    align-self: flex-end
+ }
+
+ .toppart {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+   word-wrap: break-word; 
+   justify-content: flex-end;
+ }
