@@ -69,17 +69,15 @@
         {% for d in data %}
         <div id="parent">
             <div id="child">
-                <h2><a href={{d["url"]}}>
-                        <div id="myDiv">
-                            {% for word in d["title"].split(" ") %}
-                            {% if word in query.split() %}
-                            <strong>{{word}}</strong>
-                            {% else %}
-                            {{word}}
-                            {% endif %}
-                            {% endfor %}
-                        </div>
-                    </a></h2>
+                <h2><a href={{d["url"]}}><div id="myDiv">
+                    {% for word in d["title"].split(" ") %}
+                    {% if word in stemming_words %}
+                    <strong>{{word}}</strong>
+                    {% else %}
+                    {{word}}
+                    {% endif %}
+                    {% endfor %}
+                </div></a></h2>
             </div>
             {% if d["title"] !='No Results Found' %}
 
@@ -103,7 +101,7 @@
             <div id="child">
                 <strong>Summary: </strong>
                 {% for word in d["summary"].split(" ") %}
-                {% if word in query.split() %}
+                {% if word in stemming_words %}
                 <strong>{{word}}</strong>
                 {% else %}
                 {{word}}
