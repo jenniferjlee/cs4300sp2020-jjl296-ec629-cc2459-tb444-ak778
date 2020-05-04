@@ -235,6 +235,8 @@ h3 {
 
 .left {
   flex: 1 0 50%;
+  text-align: center;
+  /* align-items: initial; */
   align-self: flex-start;
   max-width: 50%;
   word-wrap: break-word;
@@ -242,14 +244,18 @@ h3 {
 
 .right {
   flex: 1 0 50%;
+  text-align: center;
   align-self: flex-end;
-  text-align: right
 }
 
-.toppart {
+/* .toppart {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   word-wrap: break-word;
   justify-content: flex-end;
+} */
+
+.fillspace {
+  flex: auto;
 }

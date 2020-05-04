@@ -61,7 +61,7 @@
 
         {% for d in data %}
         <div id="parent">
-            <div id="left">
+            <div class="left">
                 <div id="child" style="float: left;">
                     <h2><a href={{d["url"]}}>
                             {% for word in d["title"].split(" ") %}
@@ -75,10 +75,23 @@
                             {% endfor %}
                         </a></h2>
                 </div>
+                <div id="child">
+                    <strong>Summary: </strong>
+                    {% for word in d["summary"].split(" ") %}
+                    {% if word in stemming_words %}
+                    <strong>
+                        <div style="color:rgb(177, 148, 6)">{{word}}</div>
+                    </strong>
+                    {% else %}
+                    {{word}}
+                    {% endif %}
+                    {% endfor %}
+                </div>
             </div>
             {% if d["title"] !='No Results Found' %}
-            <br>
+            <div class="fillspace"></div>
             <div style="margin-right: 20px; float:right" class="right">
+                <br><br>
                 <strong>Date: </strong> {{d["date"]}} &emsp;
                 <br>
                 <strong>Source: </strong> {{d["source"]}}
@@ -88,7 +101,7 @@
                 {% endif %}
                 <br>
                 <button type="submit" name="similar" id="submitButton"
-                    style="float: right; margin-right: 10px; margin-top: 10px" class="btn btn-info"
+                    style="float: right; margin-right: 20px; margin-top: 10px" class="right btn btn-info"
                     value="{{d["title"]}}">See
                     Similar Articles</button>
             </div>
@@ -98,18 +111,6 @@
             'C U Smile' not in output_message and 'Uplifting News on' not in output_message %}
             <strong>Similarity:</strong> {{d["sim"]}}
             {% endif %}
-            <div id="child">
-                <strong>Summary: </strong>
-                {% for word in d["summary"].split(" ") %}
-                {% if word in stemming_words %}
-                <strong>
-                    <div style="color:rgb(177, 148, 6)">{{word}}</div>
-                </strong>
-                {% else %}
-                {{word}}
-                {% endif %}
-                {% endfor %}
-            </div>
             {% endif %}
         </div>
         {% endfor %}
