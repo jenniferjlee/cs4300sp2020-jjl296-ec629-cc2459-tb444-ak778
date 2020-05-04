@@ -110,6 +110,7 @@ def search():
 
     if (random == "Give me Anything!"):
         output_message, data = random_helper()
+        query = ""
     if topic is not None:
         output_message, data = topic_helper(topic)
     if similar is not None:
