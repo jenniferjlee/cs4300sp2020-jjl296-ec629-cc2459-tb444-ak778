@@ -9,7 +9,7 @@ from app.irsystem.models.search import *
 project_name = "CUSmiles"
 net_id = "Jennifer Lee: jjl296, Camilo Cedeno-Tobon: cc2459, Tanmay Bansal: tb444, Alina Kim: ak778, Ein Chang: ec629"
 
-# Camilo's changes
+
 documents = load_json_file('final_data5.json')
 transcript_idf_values = load_json_file('transcript_idf_values.json')
 transcript_inverted_index = load_json_file('transcript_inverted_index.json')
@@ -17,17 +17,8 @@ transcript_norms = load_json_file('transcript_norms.json')
 title_idf_values = load_json_file('title_idf_values.json')
 title_inverted_index = load_json_file('title_inverted_index.json')
 title_norms = load_json_file('title_norms.json')
-
-# Ein's changes
-"""documents = load_json_file('final_data2.json')
-inverted_index = load_json_file('transcript_inverted_index1.json')
-tfidf_matrix = load_json_file('transcript_tfidf_matrix1.json')
-norms = load_json_file('transcript_norms1.json')"""
-
 classifiedDocs = load_json_file('final_data_classified.json')
-
 topicDocs = load_json_file('topics.json')
-
 similarDocs = load_json_file('similars_final.json')
 
 
@@ -75,21 +66,16 @@ def search():
         output_message = "Results for " + query
         data = top_results
 
-        #update data to have similar {title, links}
 
-        #Change to sort by: relevancy and popularity once this works
-
-        # sorting top results
-        # FUTURE TODO: use top results + most recent etc
         isRecent = request.args.get('r_sort')
         isPopular = request.args.get('p_sort')
 
 
         if (isRecent=="new"):
-            data = sort_by_recency(transcript_results, 25, documents, True)
+            data = sort_by_recency(combined_results, 25, documents, True)
 
         if (isRecent=="old"):
-            data = sort_by_recency(transcript_results, 25, documents, False)
+            data = sort_by_recency(combined_results, 25, documents, False)
 
 
         if (len(data)==0):
@@ -101,7 +87,7 @@ def search():
     if topic is not None:
         output_message, data = topic_helper(topic)
     if similar is not None:
-        output_message = "Articles Similar to " + similar
+        output_message = similar
         data = similarDocs[similar]
     if query is None:
         query = ""
