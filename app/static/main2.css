@@ -60,8 +60,8 @@
 .topcorner {
     position: absolute;
     text-align: left;
-    top: 2%;
-    left: 2%;
+    top: 1%;
+    left: 1%;
 }
 
 .btn:hover {
