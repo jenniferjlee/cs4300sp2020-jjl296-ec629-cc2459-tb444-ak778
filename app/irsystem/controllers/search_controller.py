@@ -72,7 +72,7 @@ def search():
         title_results = search_tfdf_method(query, title_inverted_index, title_norms, title_idf_values, tokenize)
         combined_results = get_combined_results(transcript_results, title_results, 0.4, 0.6)
         top_results = get_top_k(combined_results, 25, documents)
-        output_message = "Your search: " + query
+        output_message = "Results for " + query
         data = top_results
 
         #update data to have similar {title, links}
@@ -101,7 +101,7 @@ def search():
     if topic is not None:
         output_message, data = topic_helper(topic)
     if similar is not None:
-        output_message = "Articles similar to "
+        output_message = similar
         data = similarDocs[similar]
     if query is None:
         query = ""
