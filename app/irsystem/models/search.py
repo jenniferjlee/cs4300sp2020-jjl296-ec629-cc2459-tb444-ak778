@@ -44,7 +44,6 @@ def search_keyword_method(query, n_docs, input_inverted_index, tokenize_method):
         if(scores[i] > 0):
             sim.append((scores[i], i))
     sim.sort(key = lambda x: x[0], reverse = True)
-    print(sim[0])
     return sim
 
 

@@ -31,7 +31,7 @@ def save_json_file(name, input_data):
         f.write(json.dumps(input_data, ensure_ascii=False,indent=2))
 
 
-def tokenize(text, stem_words = False):
+def tokenize(text, stem_words = True):
     """Returns a list of words that make up the text.
     
     Note: for simplicity, lowercase everything.
@@ -257,10 +257,10 @@ def main():
     data = tokenize_articles(data, 'title', tokenize)
     # Create and save relevant data structures
     print('Starting processing of transcripts')
-    run('transcript', data, 8)
+    run('transcript', data, 3)
     print('Finshed processing of transcripts')
     print('Starting processing of titles')
-    run('title', data, 2)
+    run('title', data, 0)
     print('Finshed processing of titles')
 
 
